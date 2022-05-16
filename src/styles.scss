@@ -1,0 +1,53 @@
+@use "styles/colors";
+
+* {
+  box-sizing: border-box;
+
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  --tui-primary: #{colors.$system-blue} !important;
+
+  box-sizing: border-box;
+  min-height: 100%;
+  overflow-x: hidden;
+
+  body {
+    position: relative;
+
+    min-width: 320px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    main,
+    input,
+    button,
+    select,
+    textarea {
+    /*  font-family: $font !important;*/
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+button {
+  padding: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+}

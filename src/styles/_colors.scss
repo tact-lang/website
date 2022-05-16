@@ -1,0 +1,7 @@
+$system-blue: #5184ab;
+$system-white: #fff;
+
+html {
+  --system-blue: #{$system-blue};
+  --white: #{$system-white};
+}
