@@ -1,7 +1,27 @@
-$system-blue: #5184ab;
-$system-white: #fff;
+$blue: #48B5FF;
+$yellow: #FFC266;
+$purple: #BC8FFF;
+$orange: #FF7661;
+$gray-150: #B8C0CC;
+$gray-300: #99A1AD;
+$gray-400: #818B99;
+$gray-500: #5F6670;
+$gray-600: #1C2129;
+$gray-700: #171B21;
+$gray-900: #0D1014;
+$white: #fff;
 
 html {
-  --system-blue: #{$system-blue};
-  --white: #{$system-white};
+  --blue: #{$blue};
+  --yellow: #{$yellow};
+  --purple: #{$purple};
+  --orange: #{$orange};
+  --gray-150: #{$gray-150};
+  --gray-300: #{$gray-300};
+  --gray-400: #{$gray-400};
+  --gray-500: #{$gray-500};
+  --gray-600: #{$gray-600};
+  --gray-700: #{$gray-700};
+  --gray-900: #{$gray-900};
+  --white: #{$white};
 }

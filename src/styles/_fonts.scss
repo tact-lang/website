@@ -1,0 +1,10 @@
+@use 'src/styles/mixins';
+
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-Thin', 100);
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-Extralight', 200);
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-Light', 300);
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-Regular', 400);
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-Medium', 500);
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-SemiBold', 600);
+@include mixins.font-face('JetBrains-Mono', '/assets/fonts/JetBrainsMono/JetBrainsMono-Bold', 700);
+
