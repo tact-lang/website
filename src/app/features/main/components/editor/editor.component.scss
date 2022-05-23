@@ -1,0 +1,85 @@
+@use 'src/styles';
+
+$editor-width: 590px;
+
+
+:host {
+  display: block;
+  width: $editor-width;
+  height: 562px;
+}
+
+.editor {
+  position: absolute;
+
+  width: $editor-width;
+  height: 430px;
+
+  background-color: var(--gray-600);
+
+  ::ng-deep {
+    .ace_line {
+      color: var(--gray-300);
+    }
+
+    .ace_gutter {
+      background-color: var(--gray-600);
+
+      &-cell {
+        @include styles.font-standard();
+        position: static !important;
+
+        color: var(--gray-500);
+        line-height: 22px;
+
+        background-color: var(--gray-600);
+      }
+    }
+
+    .ace_cursor {
+      color: var(--gray-300);
+    }
+
+    .ace_mobile-menu {
+      display: none;
+    }
+
+    .ace_keyword {
+      color: var(--blue);
+    }
+
+    .ace_variable {
+      color: var(--yellow);
+    }
+
+    .ace_constant {
+      color: var(--orange);
+    }
+  }
+}
+
+.editor-wrapper {
+  position: relative;
+
+  padding-top: 24px;
+
+  background-color: var(--gray-600);
+}
+
+.editor-head {
+  padding: 20px 28px;
+
+  background-color: var(--gray-575);
+
+  border-radius: 24px 24px 0 0;
+
+  &__title {
+    @include styles.font-header();
+    margin-bottom: 4px;
+  }
+
+  &__description {
+    @include styles.font-standard();
+    max-width: 350px;
+  }
+}

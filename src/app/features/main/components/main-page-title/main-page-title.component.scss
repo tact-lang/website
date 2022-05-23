@@ -1,5 +1,9 @@
 @use 'src/styles';
 
+:host {
+  display: block;
+}
+
 section {
   display: flex;
   align-items: center;

@@ -45,35 +45,34 @@ ace.define(
           { token: 'paren.lparen', regex: '[\\[({]' },
           { token: 'paren.rparen', regex: '[\\])}]' },
           {
-            token: ['keyword', 'variable.parameter'],
+            token: ['keyword', 'variable'],
             regex: /(struct\s+)([\w]+)/
           },
-          { token: 'variable.parameter', regex: /\bint\b/ },
           { token: 'text', regex: /\w+:\s*/, next: 'typeAnnotation' },
           { token: 'keyword', regex: /struct\s*/, next: 'typeAnnotation' },
           { token: 'keyword', regex: /\blet|if|else|return|fn|val|struct\b/ },
-          { token: ['variable', 'text'], regex: /\b([a-z]+[\w_]*\b)(\()/ }, // mb disable
-          { token: ['variable.parameter'], regex: /\b[A-Z]+[\w_]*\b/ },
+          { token: ['constant', 'text'], regex: /\b([a-z]+[\w_]*\b)(\()/ }, // mb disable
+          { token: ['variable'], regex: /\b[A-Z]+[\w_]*\b/ },
           { caseInsensitive: false }
         ],
         typeAnnotation: [
-          { token: 'variable.parameter', regex: /\(/, next: 'genericCall' },
+          { token: 'variable', regex: /\(/, next: 'genericCall' },
           { token: 'text', regex: /[^\w]/, next: 'start' },
-          { defaultToken: 'variable.parameter' }
+          { defaultToken: 'variable' }
         ],
         genericCall: [
-          { token: 'variable.parameter', regex: /\(/, next: 'genericSubCall' },
-          { token: 'variable.parameter', regex: /\)/, next: 'typeAnnotation' },
-          { defaultToken: 'variable.parameter' }
+          { token: 'variable', regex: /\(/, next: 'genericSubCall' },
+          { token: 'variable', regex: /\)/, next: 'typeAnnotation' },
+          { defaultToken: 'variable' }
         ],
         genericSubCall: [
-          { token: 'variable.parameter', regex: /\(/, next: 'genericSubSubCall' },
-          { token: 'variable.parameter', regex: /\)/, next: 'genericCall' },
-          { defaultToken: 'variable.parameter' }
+          { token: 'variable', regex: /\(/, next: 'genericSubSubCall' },
+          { token: 'variable', regex: /\)/, next: 'genericCall' },
+          { defaultToken: 'variable' }
         ],
         genericSubSubCall: [
-          { token: 'variable.parameter', regex: /\)/, next: 'genericSubCall' },
-          { defaultToken: 'variable.parameter' }
+          { token: 'variable', regex: /\)/, next: 'genericSubCall' },
+          { defaultToken: 'variable' }
         ]
       };
     };

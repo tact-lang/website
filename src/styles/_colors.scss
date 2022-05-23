@@ -7,6 +7,7 @@ $gray-200: #aeb6c2;
 $gray-300: #99a1ad;
 $gray-400: #818b99;
 $gray-500: #5f6670;
+$gray-575: #242b34;
 $gray-600: #1c2129;
 $gray-700: #171b21;
 $gray-900: #0d1014;
@@ -22,6 +23,7 @@ html {
   --gray-300: #{$gray-300};
   --gray-400: #{$gray-400};
   --gray-500: #{$gray-500};
+  --gray-575: #{$gray-575};
   --gray-600: #{$gray-600};
   --gray-700: #{$gray-700};
   --gray-900: #{$gray-900};

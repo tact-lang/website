@@ -1,3 +1,5 @@
+@use 'src/styles/variables';
+
 @mixin font-face(
   $font-family,
   $file-path,
@@ -67,4 +69,20 @@
   @media (max-width: $pointMax + 'px') and (min-width: $pointMin + 'px') {
     @content;
   }
+}
+
+@mixin font-header() {
+  color: var(--gray-200);
+  font-weight: variables.$font-weight-bold;
+  font-size: 24px;
+  font-family: variables.$jet-brains-mono-font;
+  line-height: 36px;
+}
+
+@mixin font-standard() {
+  color: var(--gray-400);
+  font-weight: variables.$font-weight-normal;
+  font-size: 16px;
+  font-family: variables.$jet-brains-mono-font;
+  line-height: 26px;
 }
