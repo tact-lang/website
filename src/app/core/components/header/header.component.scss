@@ -1,9 +1,27 @@
+@use 'src/styles';
+
 header {
+  display: flex;
+  justify-content: space-between;
   height: 70px;
+  margin-top: 18px;
 
-  background-color: var(--system-blue);
+  background: transparent;
+}
 
-  span {
+.logo {
+  color: var(--gray-200);
+  font-weight: styles.$font-weight-extra-bold;
+  font-size: styles.$font-size-l;
+  text-transform: uppercase;
+}
 
+.links-container {
+  display: flex;
+}
+
+.link {
+  &:not(:last-child) {
+    margin-right: 48px;
   }
 }

@@ -1,0 +1,59 @@
+body {
+  position: relative;
+
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+button {
+  padding: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  position: relative;
+
+  display: block;
+  height: 1.75em;
+  padding: 0.2em 0;
+
+  color: var(--gray-300);
+  text-decoration: none;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 0.1em;
+
+    background-color: var(--gray-500);
+
+    transform: scale(0);
+    transform-origin: center;
+    opacity: 1;
+
+    transition: opacity 300ms, transform 300ms;
+
+    content: '';
+  }
+
+  &:hover::after,
+  a:focus::after {
+    transform: scale(1);
+  }
+}

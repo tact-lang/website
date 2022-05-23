@@ -1,6 +1,11 @@
-@use "styles/colors";
-@use "styles/fonts" as *;
-@use "styles/variables";
+@use 'styles/colors';
+@use 'styles/fonts';
+@use 'styles/variables';
+@use 'styles/html-elements';
+
+@forward 'styles/breakpoints';
+@forward 'styles/colors';
+@forward 'styles/variables';
 
 * {
   box-sizing: border-box;
@@ -22,33 +27,10 @@ html {
   min-height: 100%;
   overflow-x: hidden;
 
-  font-family: variables.$jet-brains-mono-font;
+  color: var(--gray-400);
   font-weight: variables.$font-weight-normal;
   font-size: variables.$font-size-m;
-  color: var(--gray-400);
 
-  body {
-    position: relative;
-
-    min-width: 320px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
+  font-family: variables.$jet-brains-mono-font;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  margin: 0;
-
-  appearance: none;
-}
-
-button {
-  padding: 0;
-
-  background: none;
-  border: none;
-  cursor: pointer;
-}
