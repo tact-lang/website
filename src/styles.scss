@@ -21,13 +21,14 @@
 html {
   --tui-primary: #{colors.$blue} !important;
   --tui-font-text: #{variables.$jet-brains-mono-font} !important;
+  --tui-text-01: #{colors.$gray-300} !important;
   --tui-font-text-s: #{variables.$font-size-m} #{variables.$jet-brains-mono-font} #{variables.$font-weight-normal} !important;
 
   box-sizing: border-box;
   min-height: 100%;
   overflow-x: hidden;
 
-  color: var(--gray-400);
+  color: var(--gray-300);
   font-weight: variables.$font-weight-normal;
   font-size: variables.$font-size-m;
 

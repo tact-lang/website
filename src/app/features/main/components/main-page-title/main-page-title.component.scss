@@ -1,0 +1,22 @@
+@use 'src/styles';
+
+section {
+  display: flex;
+  align-items: center;
+}
+
+.tact-label {
+  margin-right: 24px;
+
+  color: var(--blue);
+  font-weight: styles.$font-weight-extra-bold;
+  font-size: 104px;
+  text-transform: uppercase;
+}
+
+.tact-description {
+  max-width: 540px;
+
+  font-size: 37px;
+  text-transform: uppercase;
+}
