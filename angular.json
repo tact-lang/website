@@ -40,7 +40,7 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["src/assets/scripts/ace.js", "src/assets/scripts/tact-mode.js"]
           },
           "configurations": {
             "production": {
