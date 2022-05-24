@@ -8,4 +8,6 @@ import { LANGUAGE } from '@features/main/models/LANGUAGE';
 })
 export class EditorsComponent {
   public LANGUAGE = LANGUAGE;
+
+  public funcValue = '';
 }

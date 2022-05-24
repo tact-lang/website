@@ -31,19 +31,8 @@ ace.define(
     const TextHighlightRules = aceRequire('ace/mode/text_highlight_rules').TextHighlightRules;
 
     const TactHighlightRules = function TactHighlightRules() {
-      /*const keywordMapper = this.createKeywordMapper(
-        {
-          keyword: 'let if else return fn val struct'
-        },
-        'text', // default token
-        false, // ignore case
-        ' ' // split char
-      );*/
-
       this.$rules = {
         start: [
-          { token: 'paren.lparen', regex: '[\\[({]' },
-          { token: 'paren.rparen', regex: '[\\])}]' },
           {
             token: ['keyword', 'variable'],
             regex: /(struct\s+)([\w]+)/
@@ -56,22 +45,22 @@ ace.define(
           { caseInsensitive: false }
         ],
         typeAnnotation: [
-          { token: 'variable', regex: /\(/, next: 'genericCall' },
+          { token: 'text', regex: /\(/, next: 'genericCall' },
           { token: 'text', regex: /[^\w]/, next: 'start' },
           { defaultToken: 'variable' }
         ],
         genericCall: [
-          { token: 'variable', regex: /\(/, next: 'genericSubCall' },
-          { token: 'variable', regex: /\)/, next: 'typeAnnotation' },
+          { token: 'text', regex: /\(/, next: 'genericSubCall' },
+          { token: 'text', regex: /\)/, next: 'typeAnnotation' },
           { defaultToken: 'variable' }
         ],
         genericSubCall: [
-          { token: 'variable', regex: /\(/, next: 'genericSubSubCall' },
-          { token: 'variable', regex: /\)/, next: 'genericCall' },
+          { token: 'text', regex: /\(/, next: 'genericSubSubCall' },
+          { token: 'text', regex: /\)/, next: 'genericCall' },
           { defaultToken: 'variable' }
         ],
         genericSubSubCall: [
-          { token: 'variable', regex: /\)/, next: 'genericSubCall' },
+          { token: 'text', regex: /\)/, next: 'genericSubCall' },
           { defaultToken: 'variable' }
         ]
       };

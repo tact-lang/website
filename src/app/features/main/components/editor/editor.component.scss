@@ -1,7 +1,10 @@
 @use 'src/styles';
 
 $editor-width: 590px;
-
+$caret-color: #cad1db;
+/*$selection-color: #333c47;*/
+$selection-color: #242b34;
+$active-line-color: #21262f;
 
 :host {
   display: block;
@@ -16,33 +19,58 @@ $editor-width: 590px;
   height: 430px;
 
   background-color: var(--gray-600);
+  border-radius: 0 0 24px 24px;
+
+  &.ace_focus {
+    ::ng-deep {
+      .ace_active-line {
+        display: block;
+      }
+    }
+  }
 
   ::ng-deep {
     .ace_line {
-      color: var(--gray-300);
+      color: var(--gray-150);
+      font-weight: styles.$font-weight-normal;
+      font-family: styles.$jet-brains-mono-font;
     }
 
     .ace_gutter {
       background-color: var(--gray-600);
 
       &-cell {
-        @include styles.font-standard();
-        position: static !important;
-
         color: var(--gray-500);
-        line-height: 22px;
+        font-weight: styles.$font-weight-normal;
+        font-family: styles.$jet-brains-mono-font;
 
         background-color: var(--gray-600);
       }
     }
 
     .ace_cursor {
-      color: var(--gray-300);
+      color: $caret-color;
     }
 
-    .ace_mobile-menu {
-      display: none;
+    .ace_selection {
+      background-color: $selection-color;
+      border-radius: 0;
     }
+
+    .ace_active-line {
+      display: none;
+
+      background-color: $active-line-color;
+    }
+
+    .ace_selected-word {
+      background-color: unset;
+      border: none;
+    }
+
+    .ace_hidden-cursors,
+    .ace_mobile-menu,
+    .ace_bracket { display: none; }
 
     .ace_keyword {
       color: var(--blue);
@@ -54,6 +82,28 @@ $editor-width: 590px;
 
     .ace_constant {
       color: var(--orange);
+    }
+
+    ::-webkit-scrollbar {
+      background: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--gray-550);
+      border: 4px solid var(--gray-600);
+      border-radius: 9px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+      margin: 15px 0;
+    }
+
+    ::-webkit-scrollbar-thumb:horizontal {
+      border-top-width: 4px;
+      border-right-width: 0;
+      border-bottom-width: 4px;
+      border-left-width: 0;
+      border-radius: 4px 9px;
     }
   }
 }

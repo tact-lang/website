@@ -1,13 +1,5 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Inject,
-  Input,
-  Output,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Editor } from '@core/models/ace/editor.interface';
 import { LANGUAGE } from '@features/main/models/LANGUAGE';
 import { WINDOW } from '@ng-web-apis/common';
 
@@ -19,28 +11,41 @@ import { WINDOW } from '@ng-web-apis/common';
 export class EditorComponent implements AfterViewInit {
   @Input() language: LANGUAGE = LANGUAGE.TACT;
 
-  @Input() value: string = '';
+  @Input() disabled: boolean = false;
+
+  @Input() set value(val: string) {
+    this._value = val;
+    if (this.editor) {
+      this.editor.session.setValue(this._value);
+    }
+  }
 
   @Output() valueChanges = new EventEmitter<string>();
-
-  @ViewChild('editor') editor: ElementRef<HTMLElement> | undefined;
-
-  private mutationObserver: MutationObserver | undefined;
 
   public get editorId(): string {
     return `editor-${this.language}`;
   }
 
+  private _value: string = '';
+
+  private editor: Editor | undefined;
+
   constructor(@Inject(WINDOW) private window: Window) {}
 
   ngAfterViewInit() {
-    const editor = this.window.ace.edit(this.editorId);
+    this.editor = this.window.ace.edit(this.editorId);
     const TactMode = this.window.ace.require('ace/mode/custom').Mode;
-    editor.session.setMode(new TactMode());
-    // @ts-ignore
-    editor.setOptions({
-      fontSize: '16px',
-      lineHeight: '26px'
+    this.editor.session.setMode(new TactMode());
+    this.editor.setOptions({
+      fontSize: '16px'
+    });
+
+    this.editor.session.setValue(this._value);
+    this.editor.setReadOnly(this.disabled);
+
+    this.editor.session.on('change', () => {
+      const editorText = this.editor!.session.getValue();
+      this.valueChanges.emit(editorText);
     });
   }
 }

@@ -1,4 +1,12 @@
 <section>
-  <app-editor [language]="LANGUAGE.TACT"></app-editor>
-  <app-editor [language]="LANGUAGE.FUNC"></app-editor>
+  <app-editor
+    [language]="LANGUAGE.TACT"
+    value="123"
+    (valueChanges)="funcValue = $event"
+  ></app-editor>
+  <app-editor
+    [language]="LANGUAGE.FUNC"
+    [disabled]="true"
+    [value]="'compiled + ' + funcValue"
+  ></app-editor>
 </section>
