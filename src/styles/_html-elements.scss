@@ -44,6 +44,8 @@ a {
   color: var(--gray-300);
   text-decoration: none;
 
+  cursor: pointer;
+
   &::after {
     position: absolute;
     bottom: 0;
