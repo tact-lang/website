@@ -13,12 +13,6 @@ ace.define(
     };
 
     oop.inherits(Mode, TextMode);
-
-    /* (function () {
-      this.lineCommentStart = ';;';
-      this.blockComment = { start: '{-', end: '-}' };
-    }.call(Mode.prototype));*/
-
     exports.Mode = Mode;
   }
 );
@@ -33,6 +27,8 @@ ace.define(
     const TactHighlightRules = function TactHighlightRules() {
       this.$rules = {
         start: [
+          { token: 'comment', regex: /\/\/[^\n\r]*/ },
+          { token: 'comment', regex: /\/\*/, next: 'multiLineComment' },
           {
             token: ['keyword', 'variable'],
             regex: /(struct\s+)([\w]+)/
@@ -43,6 +39,10 @@ ace.define(
           { token: ['constant', 'text'], regex: /\b([a-z]+[\w_]*\b)(\()/ }, // mb disable
           { token: ['variable'], regex: /\b[A-Z]+[\w_]*\b/ },
           { caseInsensitive: false }
+        ],
+        multiLineComment: [
+          { token: 'comment', regex: /\*\//, next: 'start' },
+          { defaultToken: 'comment' }
         ],
         typeAnnotation: [
           { token: 'text', regex: /\(/, next: 'genericCall' },

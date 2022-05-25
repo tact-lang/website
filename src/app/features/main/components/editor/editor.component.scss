@@ -5,6 +5,7 @@ $editor-height: 430px;
 $caret-color: #cad1db;
 $selection-color: #242b34;
 $active-line-color: #21262f;
+$comment-color: #40e58d;
 
 :host {
   display: block;
@@ -82,6 +83,10 @@ $active-line-color: #21262f;
 
     .ace_constant {
       color: var(--orange);
+    }
+
+    .ace_comment {
+      color: $comment-color;
     }
 
     ::-webkit-scrollbar {
