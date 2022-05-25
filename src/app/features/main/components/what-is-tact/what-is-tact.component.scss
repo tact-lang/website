@@ -1,0 +1,26 @@
+@use 'src/styles';
+
+:host {
+  display: block;
+}
+
+.tact-header {
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+article {
+  margin-bottom: 48px;
+
+  > h2 {
+    @include styles.font-header-2();
+    margin-top: 0;
+    margin-bottom: 12px;
+
+  }
+
+  > span {
+    @include styles.font-standard();
+    color: var(--gray-500);
+  }
+}

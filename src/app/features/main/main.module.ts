@@ -7,6 +7,7 @@ import { MainPageTitleComponent } from './components/main-page-title/main-page-t
 import { EditorsComponent } from './components/editors/editors.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { CodeExamplesSelectComponent } from './components/code-examples-select/code-examples-select.component';
+import { WhatIsTactComponent } from './components/what-is-tact/what-is-tact.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CodeExamplesSelectComponent } from './components/code-examples-select/c
     MainPageTitleComponent,
     EditorsComponent,
     EditorComponent,
-    CodeExamplesSelectComponent
+    CodeExamplesSelectComponent,
+    WhatIsTactComponent
   ],
   imports: [CommonModule, MainRoutingModule],
   providers: [EditorService]
