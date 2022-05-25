@@ -1,22 +1,22 @@
 @use 'src/styles';
 
 $editor-width: 590px;
+$editor-height: 430px;
 $caret-color: #cad1db;
-/*$selection-color: #333c47;*/
 $selection-color: #242b34;
 $active-line-color: #21262f;
 
 :host {
   display: block;
   width: $editor-width;
-  height: 562px;
+  height: $editor-height + 132px + 24px;
 }
 
 .editor {
   position: absolute;
 
   width: $editor-width;
-  height: 430px;
+  height: $editor-height;
 
   background-color: var(--gray-600);
   border-radius: 0 0 24px 24px;
@@ -104,6 +104,18 @@ $active-line-color: #21262f;
       border-bottom-width: 4px;
       border-left-width: 0;
       border-radius: 4px 9px;
+    }
+  }
+
+  &_disabled {
+    ::ng-deep {
+      .ace_active-line {
+        display: none !important;
+      }
+
+      .ace_cursor {
+        display: none !important;
+      }
     }
   }
 }

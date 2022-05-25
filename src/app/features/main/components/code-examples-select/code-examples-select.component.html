@@ -1,0 +1,8 @@
+<div class="font-header-2">Tact code examples</div>
+<ul class="selection-container">
+  <li *ngFor="let codeExample of codeExamples; let i = index">
+    <button [class.pressed]="selectedIndex === i" (click)="onSelect(i)">
+      {{ codeExample.name }}
+    </button>
+  </li>
+</ul>

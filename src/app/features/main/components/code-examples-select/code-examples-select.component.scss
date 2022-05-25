@@ -1,0 +1,42 @@
+@use 'src/styles';
+
+:host {
+  display: block;
+}
+
+.selection-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 50%;
+  margin-top: 24px;
+
+  button {
+    @include styles.font-standard();
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 20px;
+
+    color: var(--gray-300);
+
+    border: 1px solid var(--gray-575);
+    border-radius: 24px;
+
+    transition: border 0.2s ease-in-out, transform 0.08s ease-in-out;
+
+    &:hover {
+      border: 1px solid var(--gray-500);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &.pressed {
+      color: var(--gray-200);
+
+      background-color: var(--gray-575);
+    }
+  }
+}

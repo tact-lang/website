@@ -1,0 +1,9 @@
+@use './mixins';
+
+.font-header {
+  @include mixins.font-header();
+}
+
+.font-header-2 {
+  @include mixins.font-header-2();
+}

@@ -79,6 +79,14 @@
   line-height: 36px;
 }
 
+@mixin font-header-2() {
+  color: var(--gray-200);
+  font-weight: variables.$font-weight-bold;
+  font-size: 20px;
+  font-family: variables.$jet-brains-mono-font;
+  line-height: 28px;
+}
+
 @mixin font-standard() {
   color: var(--gray-400);
   font-weight: variables.$font-weight-normal;

@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  Output
+} from '@angular/core';
 import { Editor } from '@core/models/ace/editor.interface';
 import { LANGUAGE } from '@features/main/models/LANGUAGE';
 import { WINDOW } from '@ng-web-apis/common';
@@ -6,14 +14,20 @@ import { WINDOW } from '@ng-web-apis/common';
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorComponent implements AfterViewInit {
   @Input() language: LANGUAGE = LANGUAGE.TACT;
 
   @Input() disabled: boolean = false;
 
-  @Input() set value(val: string) {
+  @Input() set value(val: string | null) {
+    val ||= '';
+    if (this._value === val) {
+      return;
+    }
+
     this._value = val;
     if (this.editor) {
       this.editor.session.setValue(this._value);
@@ -45,6 +59,7 @@ export class EditorComponent implements AfterViewInit {
 
     this.editor.session.on('change', () => {
       const editorText = this.editor!.session.getValue();
+      this._value = editorText;
       this.valueChanges.emit(editorText);
     });
   }

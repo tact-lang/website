@@ -1,12 +1,8 @@
 <section>
   <app-editor
     [language]="LANGUAGE.TACT"
-    value="123"
-    (valueChanges)="funcValue = $event"
+    [value]="tactCode$ | async"
+    (valueChanges)="onTactCodeChange($event)"
   ></app-editor>
-  <app-editor
-    [language]="LANGUAGE.FUNC"
-    [disabled]="true"
-    [value]="'compiled + ' + funcValue"
-  ></app-editor>
+  <app-editor [language]="LANGUAGE.FUNC" [disabled]="true" [value]="funcCode$ | async"></app-editor>
 </section>
