@@ -4,6 +4,7 @@ $caret-color: #cad1db;
 $selection-color: #242b34;
 $active-line-color: #21262f;
 $comment-color: #46db8c;
+$numeric-color: #8c7aff;
 
 :host {
   position: relative;
@@ -82,6 +83,10 @@ $comment-color: #46db8c;
 
     .ace_constant {
       color: var(--orange);
+
+      &.ace_numeric {
+        color: $numeric-color;
+      }
     }
 
     .ace_comment {

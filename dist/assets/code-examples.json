@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Hello world",
+    "code": "struct Foo {\n  val a: Int(32)\n  val b: Int(16)\n}\nlet serialize_foo = serializer(T);\n\nfn test() -> Cell {\n  let b = Builder.new();\n  return serialize_foo(T{a: Int(32).new(0), b: Int(16).new(1)}, b);\n}"
+  },
+  {
+    "name": "Hello world 2",
+    "code": ""
+  },
+  {
+    "name": "Hello world",
+    "code": ""
+  },
+  {
+    "name": "Hello world 2",
+    "code": ""
+  },
+  {
+    "name": "Hello world",
+    "code": ""
+  },
+  {
+    "name": "Hello world 2",
+    "code": ""
+  },
+  {
+    "name": "Hello world",
+    "code": ""
+  },
+  {
+    "name": "Hello world 2",
+    "code": ""
+  }
+]

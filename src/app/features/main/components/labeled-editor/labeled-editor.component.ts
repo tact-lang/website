@@ -15,4 +15,6 @@ export class LabeledEditorComponent {
   @Input() value: string = '';
 
   @Output() valueChange = new EventEmitter<string>();
+
+  public LANGUAGE = LANGUAGE;
 }

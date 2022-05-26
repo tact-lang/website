@@ -1,7 +1,15 @@
 <div class="editor-head">
-  <div class="editor-head__title">Tact code</div>
+  <div class="editor-head__title">
+    <ng-container *ngIf="language === LANGUAGE.TACT; else funcTitle">Tact code</ng-container>
+    <ng-template #funcTitle>FunC result</ng-template>
+  </div>
   <div class="editor-head__description">
-    Write the Tact code here or select one of the snippets below
+    <ng-container *ngIf="language === LANGUAGE.TACT; else funcDescription">
+      Write the Tact code here or select one of the snippets below
+    </ng-container>
+    <ng-template #funcDescription>
+      Tact compiler will turn the program to FunC code by the fly
+    </ng-template>
   </div>
 </div>
 <div class="editor-wrapper">

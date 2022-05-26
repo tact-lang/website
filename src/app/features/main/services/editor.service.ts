@@ -25,23 +25,37 @@ export class EditorService {
 
   constructor() {
     this._funcCode$.next(
-      ';; testable\n' +
-        '() recv_internal(slice in_msg_body) impure {\n' +
-        '  throw_if(34, in_msg_body.slice_bits() < 32);\n' +
-        '  int n = in_msg_body~load_uint(32);\n' +
-        '\n' +
-        '  slice ds = get_data().begin_parse();\n' +
-        '  int total = ds~load_uint(64);\n' +
-        '\n' +
-        '  set_data(begin_cell().store_uint(total + n, 64).end_cell());\n' +
+      'builder function_0(int self, builder builder) {\n' +
+        '  return store_int(builder, self, 32);\n' +
         '}\n' +
+        'builder function_1(int self, builder builder) {\n' +
+        '  return store_int(builder, self, 16);\n' +
+        '}\n' +
+        'builder serialize_foo([int, int] self, builder builder) {\n' +
+        '  builder builder = function_0(first(self), builder);\n' +
+        '  builder builder = function_1(second(self), builder);\n' +
+        '  return builder;\n' +
+        '}\n' +
+        'builder function_2() {\n' +
+        '  return new_builder();\n' +
+        '}\n' +
+        'builder test() {\n' +
+        '  builder b = function_2();\n' +
+        '  return serialize_foo([0, 1], b);\n' +
+        '}'
+    );
+
+    this._tactCode$.next(
+      'struct Foo {\n' +
+        '  val a: Int(32)\n' +
+        '  val b: Int(16)\n' +
+        '}\n' +
+        'let serialize_foo = serializer(Foo);\n' +
         '\n' +
-        ';; testable\n' +
-        'int get_total() method_id {\n' +
-        '  slice ds = get_data().begin_parse();\n' +
-        '  int total = ds~load_uint(64);\n' +
-        '  return total;\n' +
-        '}\n'
+        'fn test() -> Builder {\n' +
+        '  let b = Builder.new();\n' +
+        '  return serialize_foo(Foo{a: Int(32).new(0), b: Int(16).new(1)}, b);\n' +
+        '}'
     );
   }
 }
