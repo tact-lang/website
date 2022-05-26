@@ -1,11 +1,11 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Inject,
+  ChangeDetectionStrategy,
+  AfterViewInit,
   Input,
-  Output
+  Output,
+  EventEmitter,
+  Inject
 } from '@angular/core';
 import { Editor } from '@core/models/ace/editor.interface';
 import { LANGUAGE } from '@features/main/models/LANGUAGE';
@@ -34,13 +34,15 @@ export class EditorComponent implements AfterViewInit {
     }
   }
 
-  @Output() valueChanges = new EventEmitter<string>();
+  @Output() valueChange = new EventEmitter<string>();
 
   public get editorId(): string {
-    return `editor-${this.language}`;
+    return this._editorId;
   }
 
   private _value: string = '';
+
+  private readonly _editorId = this.generateEditorId();
 
   private editor: Editor | undefined;
 
@@ -60,7 +62,11 @@ export class EditorComponent implements AfterViewInit {
     this.editor.session.on('change', () => {
       const editorText = this.editor!.session.getValue();
       this._value = editorText;
-      this.valueChanges.emit(editorText);
+      this.valueChange.emit(editorText);
     });
+  }
+
+  private generateEditorId(): string {
+    return `editor${Math.round(Math.random() * 100000)}`;
   }
 }

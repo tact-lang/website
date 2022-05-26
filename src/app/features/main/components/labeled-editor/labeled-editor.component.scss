@@ -1,0 +1,45 @@
+@use 'src/styles';
+
+$editor-width: 590px;
+$editor-height: 430px;
+
+:host {
+  display: block;
+}
+
+app-editor {
+  width: $editor-width;
+  height: $editor-height;
+
+  ::ng-deep {
+    .editor {
+      border-radius: 0 0 24px 24px;
+    }
+  }
+}
+
+.editor-wrapper {
+  padding-top: 24px;
+
+  background-color: var(--gray-600);
+
+  border-radius: 0 0 24px 24px;
+}
+
+.editor-head {
+  padding: 20px 28px;
+
+  background-color: var(--gray-575);
+
+  border-radius: 24px 24px 0 0;
+
+  &__title {
+    @include styles.font-header();
+    margin-bottom: 4px;
+  }
+
+  &__description {
+    @include styles.font-standard();
+    max-width: 350px;
+  }
+}
