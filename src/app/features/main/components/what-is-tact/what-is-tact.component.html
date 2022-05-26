@@ -8,6 +8,7 @@
       to improve clarity and safety of complex smart contracts.
     </div>
     <app-code-snippet
+      class="snippet-tact-and-func"
       content="struct MyWallet {
     seqno:     UInt64,
     pubkey:    PublicKey,
@@ -35,5 +36,11 @@
       Tact makes writing and auditing multi-contract systems easier by offering first-class gas
       commitments and types. Compiler knows cost of execution of each portion of the code.
     </div>
+    <app-code-snippet
+      class="snippet-gas-safety"
+      content="interface Ping {
+    internal ping(sender: Pong, msg: Message);
+}"
+    ></app-code-snippet>
   </article>
 </section>
