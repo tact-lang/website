@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { LANGUAGE } from '@features/main/models/LANGUAGE';
+import { LANGUAGE } from '@shared/models/LANGUAGE';
 import { EditorService } from '@features/main/services/editor.service';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { Observable } from 'rxjs';

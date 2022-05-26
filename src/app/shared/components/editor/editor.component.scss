@@ -69,7 +69,8 @@ $comment-color: #46db8c;
 
     .ace_hidden-cursors,
     .ace_mobile-menu,
-    .ace_bracket { display: none; }
+    .ace_bracket,
+    .ace_print-margin { display: none; }
 
     .ace_keyword {
       color: var(--blue);

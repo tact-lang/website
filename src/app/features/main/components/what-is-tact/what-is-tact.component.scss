@@ -23,8 +23,14 @@ article {
 
   }
 
-  > span {
+  > div {
     @include styles.font-standard();
     color: var(--gray-500);
   }
+}
+
+app-code-snippet {
+  width: 100%;
+  height: 130px;
+  margin-top: 20px;
 }

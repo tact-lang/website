@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { LANGUAGE } from '@features/main/models/LANGUAGE';
+import { LANGUAGE } from '@shared/models/LANGUAGE';
 
 @Component({
   selector: 'app-labeled-editor',

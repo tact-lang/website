@@ -8,7 +8,7 @@ import {
   Inject
 } from '@angular/core';
 import { Editor } from '@core/models/ace/editor.interface';
-import { LANGUAGE } from '@features/main/models/LANGUAGE';
+import { LANGUAGE } from '@shared/models/LANGUAGE';
 import { WINDOW } from '@ng-web-apis/common';
 
 @Component({
