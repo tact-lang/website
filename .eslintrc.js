@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   overrides: [
     {
-      files: ['*.ts', 'src/assets/scripts/tact-mode.js'],
+      files: ['*.ts', 'src/assets/scripts/tact-mode.js', 'src/assets/scripts/func-mode.js'],
       plugins: ['import', 'unused-imports', 'angular-functions', 'rxjs', 'rxjs-angular'],
       parserOptions: {
         project: 'tsconfig.json',

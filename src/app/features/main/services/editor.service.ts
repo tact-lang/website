@@ -23,5 +23,25 @@ export class EditorService {
     this._tactCode$.next(value);
   }
 
-  constructor() {}
+  constructor() {
+    this._funcCode$.next(
+      ';; testable\n' +
+        '() recv_internal(slice in_msg_body) impure {\n' +
+        '  throw_if(34, in_msg_body.slice_bits() < 32);\n' +
+        '  int n = in_msg_body~load_uint(32);\n' +
+        '\n' +
+        '  slice ds = get_data().begin_parse();\n' +
+        '  int total = ds~load_uint(64);\n' +
+        '\n' +
+        '  set_data(begin_cell().store_uint(total + n, 64).end_cell());\n' +
+        '}\n' +
+        '\n' +
+        ';; testable\n' +
+        'int get_total() method_id {\n' +
+        '  slice ds = get_data().begin_parse();\n' +
+        '  int total = ds~load_uint(64);\n' +
+        '  return total;\n' +
+        '}\n'
+    );
+  }
 }

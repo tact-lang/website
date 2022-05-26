@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions,angular-functions/explicit-function-return-type */
 
 ace.define(
-  'ace/mode/custom',
+  'ace/mode/tact',
   ['require', 'exports', 'ace/lib/oop', 'ace/mode/text', 'ace/mode/tact_highlight_rules'],
   (aceRequire, exports) => {
     const oop = aceRequire('ace/lib/oop');
@@ -35,8 +35,8 @@ ace.define(
           },
           { token: 'text', regex: /\w+:\s*/, next: 'typeAnnotation' },
           { token: 'keyword', regex: /struct\s*/, next: 'typeAnnotation' },
-          { token: 'keyword', regex: /\blet|if|else|return|fn|val|struct\b/ },
-          { token: ['constant', 'text'], regex: /\b([a-z]+[\w_]*\b)(\()/ }, // mb disable
+          { token: 'keyword', regex: /\b(let|if|else|return|fn|val|struct)\b/ },
+          { token: ['constant', 'text'], regex: /\b([a-z]+[\w_]*\b)(\()/ },
           { token: ['variable'], regex: /\b[A-Z]+[\w_]*\b/ },
           { caseInsensitive: false }
         ],

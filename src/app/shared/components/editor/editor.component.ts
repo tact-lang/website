@@ -8,6 +8,7 @@ import {
   Inject
 } from '@angular/core';
 import { Editor } from '@core/models/ace/editor.interface';
+import { LANGUAGE_MODE_PATHS } from '@shared/constants/LANGUAGE_MODE_PATHS';
 import { LANGUAGE } from '@shared/models/LANGUAGE';
 import { WINDOW } from '@ng-web-apis/common';
 
@@ -50,8 +51,8 @@ export class EditorComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.editor = this.window.ace.edit(this.editorId);
-    const TactMode = this.window.ace.require('ace/mode/custom').Mode;
-    this.editor.session.setMode(new TactMode());
+    const GrammarMode = this.window.ace.require(LANGUAGE_MODE_PATHS[this.language]).Mode;
+    this.editor.session.setMode(new GrammarMode());
     this.editor.setOptions({
       fontSize: '16px'
     });
