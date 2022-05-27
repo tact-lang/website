@@ -10,7 +10,7 @@
 }
 
 section {
-  max-width: 906px;
+  max-width: 588px;
 }
 
 article {
@@ -18,16 +18,26 @@ article {
 
   > h3 {
     @include styles.font-header-2();
+    color: var(--gray-100);
+    line-height: 32px;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
-  > div {
+  > p {
+    margin-top: 12px;
+    margin-bottom: 0;
+
     font-family: styles.$inter-font;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 28px;
     font-weight: 400;
-    color: var(--gray-400);
+    letter-spacing: 0.04em;
+    color: var(--gray-300);
+
+    &:nth-child(2) {
+      margin-top: 0;
+    }
   }
 }
 

@@ -42,6 +42,7 @@ app-editor {
 
   &__description {
     @include styles.font-standard();
+    color: var(--gray-200);
     max-width: 350px;
   }
 }

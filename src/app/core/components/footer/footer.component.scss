@@ -1,9 +1,9 @@
 @use 'src/styles';
 
-footer {
+.footer-container {
   display: flex;
   gap: 75px;
-  margin-bottom: 112px;
+  margin-bottom: 76px;
 }
 
 section {
@@ -53,5 +53,32 @@ section {
 
   li:not(:last-child) {
     margin-bottom: 16px;
+  }
+}
+
+.footer-sponsor-link {
+  display: flex;
+  margin-bottom: 40px;
+
+  > span {
+    @include styles.font-standard();
+    display: flex;
+    align-items: center;
+
+    color: var(--gray-300);
+
+    transition: color 0.15s ease-in-out;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+  }
+
+  &:hover {
+    > span {
+      color: var(--gray-100);
+    }
   }
 }
