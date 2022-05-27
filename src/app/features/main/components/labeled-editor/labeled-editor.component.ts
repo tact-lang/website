@@ -17,4 +17,8 @@ export class LabeledEditorComponent {
   @Output() valueChange = new EventEmitter<string>();
 
   public LANGUAGE = LANGUAGE;
+
+  public onValueChange(value: string) {
+    this.valueChange.emit(value);
+  }
 }

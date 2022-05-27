@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Self } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, Self } from '@angular/core';
 import codeExamples from '@assets/code-examples.json';
 import { CodeExample } from '@features/main/models/code-example.interface';
 import { EditorService } from '@features/main/services/editor.service';
@@ -12,7 +12,7 @@ import { takeUntil } from 'rxjs';
   providers: [TuiDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CodeExamplesSelectComponent {
+export class CodeExamplesSelectComponent implements OnInit {
   private _selectedIndex: number | null = null;
 
   public readonly codeExamples: CodeExample[] = codeExamples;
@@ -40,6 +40,10 @@ export class CodeExamplesSelectComponent {
       }
       cdr.markForCheck();
     });
+  }
+
+  ngOnInit() {
+    this.onSelect(0);
   }
 
   public onSelect(index: number): void {
