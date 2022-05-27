@@ -2,6 +2,7 @@
 @use 'styles/fonts';
 @use 'styles/variables';
 @use 'styles/html-elements';
+@use 'styles/common';
 
 @forward 'styles/breakpoints';
 @forward 'styles/colors';
@@ -34,5 +35,7 @@ html {
   font-size: variables.$font-size-m;
 
   font-family: variables.$jet-brains-mono-font;
+
+  background-color: var(--gray-900);
 }
 

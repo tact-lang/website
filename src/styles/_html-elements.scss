@@ -46,27 +46,9 @@ a {
 
   cursor: pointer;
 
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  transition: color 0.15s ease-in-out;
 
-    width: 100%;
-    height: 0.1em;
-
-    background-color: var(--gray-500);
-
-    transform: scale(0);
-    transform-origin: center;
-    opacity: 1;
-
-    transition: opacity 300ms, transform 300ms;
-
-    content: '';
-  }
-
-  &:hover::after,
-  a:focus::after {
-    transform: scale(1);
+  &:hover {
+   color: var(--gray-100);
   }
 }

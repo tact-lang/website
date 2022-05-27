@@ -1,7 +1,7 @@
 @use 'src/styles';
 
 $caret-color: #cad1db;
-$selection-color: #242b34;
+$selection-color: #333c47;
 $active-line-color: #21262f;
 $comment-color: #46db8c;
 $numeric-color: #8c7aff;
@@ -104,7 +104,7 @@ $numeric-color: #8c7aff;
     }
 
     ::-webkit-scrollbar-track-piece {
-      margin: 15px 15px;
+      margin: 15px;
     }
 
     ::-webkit-scrollbar-thumb:horizontal {

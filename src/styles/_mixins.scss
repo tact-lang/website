@@ -77,6 +77,8 @@
   font-size: 24px;
   font-family: variables.$jet-brains-mono-font;
   line-height: 36px;
+
+  cursor: default;
 }
 
 @mixin font-header-2() {
@@ -85,6 +87,8 @@
   font-size: 20px;
   font-family: variables.$jet-brains-mono-font;
   line-height: 28px;
+
+  cursor: default;
 }
 
 @mixin font-standard() {

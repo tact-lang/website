@@ -2,6 +2,7 @@ $blue: #48b5ff;
 $yellow: #ffc266;
 $purple: #bc8fff;
 $orange: #ff7661;
+$gray-100: #E1E5EB;
 $gray-150: #b8c0cc;
 $gray-200: #aeb6c2;
 $gray-300: #99a1ad;
@@ -19,6 +20,7 @@ html {
   --yellow: #{$yellow};
   --purple: #{$purple};
   --orange: #{$orange};
+  --gray-100: #{$gray-100};
   --gray-150: #{$gray-150};
   --gray-200: #{$gray-200};
   --gray-300: #{$gray-300};

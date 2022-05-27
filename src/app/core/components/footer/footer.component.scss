@@ -14,21 +14,44 @@ section {
     margin-bottom: 28px;
   }
 
-  li {
+  li a {
     display: flex;
     align-items: center;
 
-    img {
+    > div {
+      display: flex;
+      align-items: center;
       margin-right: 15px;
+
+      ::ng-deep svg path {
+        transition: fill 0.15s ease-in-out;
+      }
     }
 
-    a {
+    > span {
       @include styles.font-standard();
+      display: flex;
+      align-items: center;
+
       color: var(--gray-300);
+
+      transition: color 0.15s ease-in-out;
     }
 
-    &:not(:last-child) {
-      margin-bottom: 16px;
+    &:hover {
+      > span {
+        color: var(--gray-100);
+      }
+
+      ::ng-deep {
+        > div svg path {
+          fill: var(--gray-100);
+        }
+      }
     }
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 16px;
   }
 }

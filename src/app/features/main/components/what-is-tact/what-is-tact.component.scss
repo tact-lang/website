@@ -16,16 +16,18 @@ section {
 article {
   margin-bottom: 48px;
 
-  > h2 {
+  > h3 {
     @include styles.font-header-2();
     margin-top: 0;
     margin-bottom: 12px;
-
   }
 
   > div {
-    @include styles.font-standard();
-    color: var(--gray-500);
+    font-family: styles.$inter-font;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    color: var(--gray-400);
   }
 }
 

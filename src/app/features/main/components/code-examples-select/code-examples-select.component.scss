@@ -4,12 +4,17 @@
   display: block;
 }
 
+.examples-title {
+  font-size: 16px;
+  line-height: 26px;
+}
+
 .selection-container {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   max-width: 50%;
-  margin-top: 24px;
+  margin-top: 16px;
 
   button {
     @include styles.font-standard();
@@ -23,10 +28,10 @@
     border: 1px solid var(--gray-575);
     border-radius: 24px;
 
-    transition: border 0.2s ease-in-out, transform 0.08s ease-in-out;
+    transition: background-color 0.15s ease-in-out, transform 0.08s ease-in-out;
 
     &:hover {
-      border: 1px solid var(--gray-500);
+      background-color: var(--gray-600);
     }
 
     &:active {

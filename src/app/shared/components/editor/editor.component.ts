@@ -23,6 +23,8 @@ export class EditorComponent implements AfterViewInit {
 
   @Input() disabled: boolean = false;
 
+  @Input() margin: [number?, number?, number?, number?] = [];
+
   @Input() set value(val: string | null) {
     val ||= '';
     if (this._value === val) {
@@ -59,6 +61,12 @@ export class EditorComponent implements AfterViewInit {
 
     this.editor.session.setValue(this._value);
     this.editor.setReadOnly(this.disabled);
+    this.editor.renderer.setScrollMargin(
+      this.margin[0] || 0,
+      this.margin[1] || 0,
+      this.margin[2] || 0,
+      this.margin[3] || 0
+    );
 
     this.editor.session.on('change', () => {
       const editorText = this.editor!.session.getValue();

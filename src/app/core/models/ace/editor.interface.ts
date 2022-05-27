@@ -9,4 +9,7 @@ export interface Editor {
   };
   setOptions: (options: Object) => void;
   setReadOnly: (readonly: boolean) => void;
+  renderer: {
+    setScrollMargin: (top: number, bottom?: number, left?: number, right?: number) => void;
+  };
 }
