@@ -3,26 +3,24 @@
   <article>
     <h3>Familiar syntax</h3>
     <div>
-      Tact offers familiar syntax inspired by JavaScript, Rust and Swift. 
-      Powerful features such as algebraic data types and compile-time execution look organic and friendly to new developers.
+      Tact offers familiar syntax inspired by JavaScript, Rust and Swift. Powerful features such as
+      algebraic data types and compile-time execution look organic and friendly to new developers.
     </div>
     <app-code-snippet
-      class="snippet-tact-and-func"
-      content="fn hello(recipient: Address) {
-    recipient.send(Message.new(&quot;hello, world!&quot;));
-}"
+      content='fn hello(recipient: Address) {
+    recipient.send(Message.new("hello, world!"));
+}'
     ></app-code-snippet>
   </article>
 
   <article>
     <h3>Strong type system</h3>
     <div>
-      Tact offers algebraic data types compatible with TL-B scheme.
-      Arithmetic is always safe because integers have precise bounds. 
-      Tact compiler helps you perform necessary checks and does not produce silent failures or unexpected truncation.
+      Tact offers algebraic data types compatible with TL-B scheme. Arithmetic is always safe
+      because integers have precise bounds. Tact compiler helps you perform necessary checks and
+      does not produce silent failures or unexpected truncation.
     </div>
     <app-code-snippet
-      class="snippet-tact-and-func"
       content="struct Wallet {
    val seqno: Int(32);
    val pubkey: PublicKey;
@@ -33,11 +31,11 @@
 
   <article>
     <h3>Actor-oriented</h3>
-    <div>Tact is designed specifically for the TON actor model.
-Strongly typed messages enforce communication contracts between actors.
+    <div>
+      Tact is designed specifically for the TON actor model. Strongly typed messages enforce
+      communication contracts between actors.
     </div>
     <app-code-snippet
-      class="snippet-tact-and-func"
       content="interface Ping {
     fn ping(sender: Pong, msg: PingMessage);
 }"
@@ -47,32 +45,41 @@ Strongly typed messages enforce communication contracts between actors.
   <article>
     <h3>Gas control</h3>
     <div>
-Blockchain programs have strict execution cost model. Every operation must be paid for in real time and execution may fail mid-way if it runs out of gas. 
-      </div>
-      <div>
-Tact makes cross-contract messages safe with precise gas commitments and compiler checks of the execution costs. Variable costs are either have static bounds, or checked explicitly in runtime.
+      Blockchain programs have strict execution cost model. Every operation must be paid for in real
+      time and execution may fail mid-way if it runs out of gas.
+    </div>
+    <div>
+      Tact makes cross-contract messages safe with precise gas commitments and compiler checks of
+      the execution costs. Variable costs are either have static bounds, or checked explicitly in
+      runtime.
     </div>
   </article>
-  
+
   <article>
     <h3>Zero-overhead type composition</h3>
     <div>
-      Tact runs your program twice. First run is a compile-time execution that allows freely combining types and interfaces to precisely express invariants of the program. Types are then checked by the compiler. The resulting Fift or FunC code does not have any runtime overhead.
+      Tact runs your program twice. First run is a compile-time execution that allows freely
+      combining types and interfaces to precisely express invariants of the program. Types are then
+      checked by the compiler. The resulting Fift or FunC code does not have any runtime overhead.
     </div>
     <div>
-      This model offers a single unified language with first-class types and avoids pitfall of separate mini-languages for type bounds and macros.
+      This model offers a single unified language with first-class types and avoids pitfall of
+      separate mini-languages for type bounds and macros.
     </div>
-
   </article>
-  
+
   <article>
     <h3>Tact and FunC</h3>
     <div>
-      FunC is a lower-level language aimed at developers who are deeply familiar with TON architecture. FunC liberates developers from writing raw Fift code, while providing the same level of control. Unfortunately, the precision of FunC makes it harder to write complex multi-contract systems.
+      FunC is a lower-level language aimed at developers who are deeply familiar with TON
+      architecture. FunC liberates developers from writing raw Fift code, while providing the same
+      level of control. Unfortunately, the precision of FunC makes it harder to write complex
+      multi-contract systems.
     </div>
     <div>
-Tact enables developers to go even further: you can write the entire suites of smart contracts with strongly typed interfaces and statically verified execution costs. With Tact you can focus on your problem and worry less about blockchain idiosyncrasies.
+      Tact enables developers to go even further: you can write the entire suites of smart contracts
+      with strongly typed interfaces and statically verified execution costs. With Tact you can
+      focus on your problem and worry less about blockchain idiosyncrasies.
     </div>
-
   </article>
 </section>

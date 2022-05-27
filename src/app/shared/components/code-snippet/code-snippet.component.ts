@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { LANGUAGE } from '@shared/models/LANGUAGE';
 
 @Component({
@@ -8,9 +8,20 @@ import { LANGUAGE } from '@shared/models/LANGUAGE';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CodeSnippetComponent {
-  @Input() language: LANGUAGE = LANGUAGE.TACT;
+  @HostBinding('style.height') get snippetHeight(): string {
+    return `${this.linesNumber * this.editorLineHeight + 40}px`;
+  }
+
+  @Input()
+  language: LANGUAGE = LANGUAGE.TACT;
 
   @Input() content: string = '';
+
+  private get linesNumber(): number {
+    return this.content.split('\n').length;
+  }
+
+  private editorLineHeight = 22;
 
   constructor() {}
 }

@@ -3,6 +3,9 @@ import { TactCompiler } from '@core/models/tact/tact-compiler.interface';
 import { WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
 
+const tactCodeExample =
+  'struct Foo {\n  val a: Int(32)\n  val b: Int(16)\n}\nlet serialize_foo = serializer(Foo);\n\nfn test() -> Builder {\n  let b = Builder.new();\n  return serialize_foo(Foo{a: Int(32).new(0), b: Int(16).new(1)}, b);\n}';
+
 @Injectable()
 export class EditorService {
   private readonly compiler: TactCompiler;
@@ -34,6 +37,7 @@ export class EditorService {
 
   constructor(@Inject(WINDOW) window: Window) {
     this.compiler = window.Tact;
+    this.tactCode = tactCodeExample;
   }
 
   private compile(): void {
