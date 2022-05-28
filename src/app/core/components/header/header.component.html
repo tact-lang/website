@@ -6,4 +6,19 @@
     <a class="link" [link]="'https://github.com/tact-lang'">Github</a>
     <a class="link" href="#">Telegram</a>
   </div>
+  <tui-hosted-dropdown [content]="content" [(open)]="burgerOpened" (openChange)="burgerToggled()">
+    <button class="burger" [class.burger_opened]="burgerOpened">
+      <span></span>
+      <span></span>
+    </button>
+
+    <ng-template #content>
+      <div class="dropdown-content">
+        <a href="#">Design</a>
+        <a href="#">Specification</a>
+        <a [link]="'https://github.com/tact-lang'">Github</a>
+        <a href="#">Telegram</a>
+      </div>
+    </ng-template>
+  </tui-hosted-dropdown>
 </header>

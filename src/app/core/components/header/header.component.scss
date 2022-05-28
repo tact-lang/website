@@ -1,19 +1,88 @@
 @use 'src/styles';
 
+$burger-color: #C4C4C4;
+
 header {
   display: flex;
   justify-content: space-between;
   margin-top: 18px;
 
   background: transparent;
+
+  @include styles.burgerOpened {
+    img {
+      opacity: 0.5;
+    }
+  }
 }
 
 .links-container {
   display: flex;
+
+  @include styles.b(mobile) {
+    display: none;
+  }
 }
 
 .link {
   &:not(:last-child) {
     margin-right: 48px;
+  }
+}
+
+tui-hosted-dropdown {
+  display: none;
+
+  @include styles.b(mobile) {
+    display: block;
+  }
+}
+
+.burger {
+  span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: $burger-color;
+
+    margin-bottom: 6px;
+
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &_opened {
+    span {
+      &:first-child {
+        transform: translateY(4px) rotate(45deg);
+      }
+
+      &:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+::ng-deep {
+  tui-dropdown-box {
+    border: none !important;
+    background-color: var(--gray-600) !important;
+  }
+
+  tui-scrollbar {
+    background-color: var(--gray-600) !important;
+  }
+}
+
+.dropdown-content {
+  padding: 12px 20px;
+  width: 196px;
+  background-color: var(--gray-600);
+
+  > a {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
   }
 }

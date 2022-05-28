@@ -1,6 +1,5 @@
 @use 'src/styles';
 
-$editor-width: 590px;
 $editor-height: 430px;
 
 :host {
@@ -8,7 +7,6 @@ $editor-height: 430px;
 }
 
 app-editor {
-  width: $editor-width;
   height: $editor-height;
 
   ::ng-deep {

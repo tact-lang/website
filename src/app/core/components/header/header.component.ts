@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +7,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  public burgerOpened = false;
+
+  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+
+  public burgerToggled(): void {
+    this.document.documentElement.classList.toggle('burger-opened');
+  }
+}

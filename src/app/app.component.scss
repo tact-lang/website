@@ -10,7 +10,21 @@
     flex-direction: column;
     max-width: styles.$width-limit;
     margin: 0 auto;
-    padding: 0 100px;
+    padding: 0 72px;
+
+    @include styles.burgerOpened {
+      ::ng-deep > * {
+        opacity: 0.5;
+      }
+
+      app-header {
+        opacity: 1;
+      }
+    }
+
+    @include styles.b(mobile) {
+      padding: 0 28px;
+    }
   }
 }
 

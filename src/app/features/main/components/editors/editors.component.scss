@@ -4,10 +4,15 @@
 
 section {
   display: flex;
-  justify-content: space-between;
+
+  > app-labeled-editor:first-child {
+    margin-right: 24px;
+    flex: 1;
+  }
 
   > div {
     position: relative;
+    flex: 1;
 
     app-compilation-error {
       position: absolute;
