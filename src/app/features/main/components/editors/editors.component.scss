@@ -1,3 +1,5 @@
+@use "src/styles";
+
 :host {
   display: block;
 }
@@ -5,9 +7,18 @@
 section {
   display: flex;
 
+  @include styles.b(tablet) {
+    flex-direction: column;
+  }
+
   > app-labeled-editor:first-child {
     margin-right: 24px;
     flex: 1;
+
+    @include styles.b(tablet) {
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
   }
 
   > div {
