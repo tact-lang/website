@@ -1,14 +1,27 @@
+@use "src/styles";
+
 :host {
   display: block;
 }
 
 main {
-  min-height: 1000px;
-  margin-top: 66px;
+  margin-top: 70px;
+
+  @include styles.b(tablet) {
+    margin-top: 57px;
+  }
+
+  @include styles.b(mobile) {
+    margin-top: 65px;
+  }
 }
 
 app-main-page-title {
   margin-bottom: 60px;
+
+  @include styles.b(tablet) {
+    margin-bottom: 48px;
+  }
 }
 
 app-editors {
