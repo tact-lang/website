@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Self } from '@angular/core';
 import { CompilationResult } from '@features/main/models/compilation-result.interface';
 import { LANGUAGE } from '@shared/models/LANGUAGE';
 import { EditorService } from '@features/main/services/editor.service';
 import { TuiDestroyService } from '@taiga-ui/cdk';
-import { Observable } from 'rxjs';
+import { debounceTime, Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-editors',
@@ -13,18 +13,26 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorsComponent {
-  public LANGUAGE = LANGUAGE;
+  private readonly DEBOUNCE_TIMEOUT_MS = 750;
 
-  public tactCode$: Observable<string>;
+  private readonly tactCodeInputSubject$ = new Subject<string>();
 
-  public funcCompilationResult$: Observable<CompilationResult>;
+  public readonly LANGUAGE = LANGUAGE;
 
-  constructor(private readonly editorService: EditorService) {
+  public readonly tactCode$: Observable<string>;
+
+  public readonly funcCompilationResult$: Observable<CompilationResult>;
+
+  constructor(private readonly editorService: EditorService, @Self() destroy$: TuiDestroyService) {
     this.tactCode$ = editorService.tactCode$;
     this.funcCompilationResult$ = editorService.funcCompilationResult$;
+
+    this.tactCodeInputSubject$
+      .pipe(debounceTime(this.DEBOUNCE_TIMEOUT_MS), takeUntil(destroy$))
+      .subscribe(value => (this.editorService.tactCode = value));
   }
 
   public onTactCodeChange(value: string): void {
-    this.editorService.tactCode = value;
+    this.tactCodeInputSubject$.next(value);
   }
 }
