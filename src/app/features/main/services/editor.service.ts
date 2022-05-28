@@ -44,6 +44,11 @@ export class EditorService {
   private compile(): void {
     try {
       const code = this.compiler.parse(this.tactCode);
+
+      if (code === 'Error') {
+        throw new Error('invalid Tact input');
+      }
+
       this.setCompilationResult({ code, error: undefined });
     } catch (e: unknown) {
       this.setCompilationResult({
