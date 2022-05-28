@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { TactCompiler } from '@core/models/tact/tact-compiler.interface';
+import { CompilationResult } from '@features/main/models/compilation-result.interface';
 import { WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
 
@@ -12,18 +13,18 @@ export class EditorService {
 
   private readonly _tactCode$ = new BehaviorSubject<string>('');
 
-  private readonly _funcCode$ = new BehaviorSubject<string>('');
+  private readonly _funcCompilationResult$ = new BehaviorSubject<CompilationResult>({ code: '' });
 
   public readonly tactCode$ = this._tactCode$.asObservable();
 
-  public readonly funcCode$ = this._funcCode$.asObservable();
+  public readonly funcCompilationResult$ = this._funcCompilationResult$.asObservable();
 
   public get tactCode(): string {
     return this._tactCode$.getValue();
   }
 
-  public get funcCode(): string {
-    return this._funcCode$.getValue();
+  public get funcCompilationResult(): CompilationResult {
+    return this._funcCompilationResult$.getValue();
   }
 
   public set tactCode(value: string) {
@@ -31,20 +32,24 @@ export class EditorService {
     this.compile();
   }
 
-  private set funcCode(value: string) {
-    this._funcCode$.next(value);
-  }
-
   constructor(@Inject(WINDOW) window: Window) {
     this.compiler = window.Tact;
     this.tactCode = tactCodeExample;
   }
 
+  private setCompilationResult(value: CompilationResult): void {
+    this._funcCompilationResult$.next(value);
+  }
+
   private compile(): void {
     try {
-      this.funcCode = this.compiler.parse(this.tactCode);
+      const code = this.compiler.parse(this.tactCode);
+      this.setCompilationResult({ code, error: undefined });
     } catch (e: unknown) {
-      this.funcCode = (e as Error).toString();
+      this.setCompilationResult({
+        code: this.funcCompilationResult.code,
+        error: (e as Error).toString()
+      });
     }
   }
 }

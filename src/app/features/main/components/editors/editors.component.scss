@@ -5,4 +5,21 @@
 section {
   display: flex;
   justify-content: space-between;
+
+  > div {
+    position: relative;
+
+    app-compilation-error {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+    }
+
+    &.error {
+      ::ng-deep .ace_text-layer {
+        opacity: 0.5;
+      }
+    }
+  }
 }
+
