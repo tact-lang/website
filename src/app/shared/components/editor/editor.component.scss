@@ -33,7 +33,7 @@ $numeric-color: #8c7aff;
     .ace_line {
       color: var(--gray-150);
       font-weight: styles.$font-weight-normal;
-      font-family: styles.$jet-brains-mono-font;
+     /* font-family: styles.$jet-brains-mono-font;*/
     }
 
     .ace_gutter {
@@ -42,7 +42,7 @@ $numeric-color: #8c7aff;
       &-cell {
         color: var(--gray-500);
         font-weight: styles.$font-weight-normal;
-        font-family: styles.$jet-brains-mono-font;
+       /* font-family: styles.$jet-brains-mono-font;*/
 
         background-color: var(--gray-600);
       }
