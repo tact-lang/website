@@ -34,4 +34,8 @@ app-code-examples-select {
 
 app-what-is-tact {
   margin-bottom: 76px;
+
+  @include styles.b(tablet) {
+    margin-bottom: 64px;
+  }
 }

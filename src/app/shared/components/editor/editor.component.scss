@@ -73,6 +73,10 @@ $numeric-color: #8c7aff;
     .ace_bracket,
     .ace_print-margin { display: none; }
 
+    .ace_indent-guide {
+      background: transparent;
+    }
+
     .ace_keyword {
       color: var(--blue);
     }

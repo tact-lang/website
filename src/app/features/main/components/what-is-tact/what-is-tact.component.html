@@ -10,6 +10,17 @@
       content='fn hello(recipient: Address) {
     recipient.send(Message.new("hello, world!"));
 }'
+      [adaptiveContent]="[
+        {
+          maxWidth: 600,
+          content:
+            'fn hello(recipient: Address) {\n' +
+            '    recipient.send(\n' +
+            '        Message.new(&quot;hello, world!&quot;)\n' +
+            '    );\n' +
+            '}'
+        }
+      ]"
     ></app-code-snippet>
   </article>
 
@@ -39,6 +50,18 @@
       content="interface Ping {
     fn ping(sender: Pong, msg: PingMessage);
 }"
+      [adaptiveContent]="[
+        {
+          maxWidth: 600,
+          content:
+            'interface Ping {\n' +
+            '    fn ping(\n' +
+            '        sender: Pong,\n' +
+            '        msg: PingMessage\n' +
+            '    );\n' +
+            '}'
+        }
+      ]"
     ></app-code-snippet>
   </article>
 
