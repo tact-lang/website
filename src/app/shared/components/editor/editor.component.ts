@@ -56,7 +56,8 @@ export class EditorComponent implements AfterViewInit {
     const GrammarMode = this.window.ace.require(LANGUAGE_MODE_PATHS[this.language]).Mode;
     this.editor.session.setMode(new GrammarMode());
     this.editor.setOptions({
-      fontSize: '16px'
+      fontSize: '16px',
+      fontFamily: 'JetBrains-Mono'
     });
 
     this.editor.session.setValue(this._value);
