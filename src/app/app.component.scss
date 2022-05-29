@@ -12,6 +12,11 @@
     margin: 0 auto;
     padding: 0 72px;
 
+    ::ng-deep > * {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
     @include styles.burgerOpened {
       ::ng-deep > * {
         opacity: 0.5;

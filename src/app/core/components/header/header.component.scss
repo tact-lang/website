@@ -1,6 +1,6 @@
 @use 'src/styles';
 
-$burger-color: #C4C4C4;
+$burger-color: #c4c4c4;
 
 header {
   display: flex;
@@ -8,6 +8,11 @@ header {
   margin-top: 18px;
 
   background: transparent;
+
+  img {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out
+  }
 
   @include styles.burgerOpened {
     img {
@@ -30,23 +35,24 @@ header {
   }
 }
 
-tui-hosted-dropdown {
+.burger {
+  position: relative;
+
   display: none;
 
   @include styles.b(mobile) {
     display: block;
   }
-}
 
-.burger {
   span {
     display: block;
     width: 18px;
     height: 2px;
-    border-radius: 1px;
-    background-color: $burger-color;
 
     margin-bottom: 6px;
+
+    background-color: $burger-color;
+    border-radius: 1px;
 
     transition: transform 0.3s ease-in-out;
   }
@@ -57,7 +63,7 @@ tui-hosted-dropdown {
         transform: translateY(4px) rotate(45deg);
       }
 
-      &:last-child {
+      &:nth-child(2) {
         transform: translateY(-4px) rotate(-45deg);
       }
     }
@@ -66,8 +72,8 @@ tui-hosted-dropdown {
 
 ::ng-deep {
   tui-dropdown-box {
-    border: none !important;
     background-color: var(--gray-600) !important;
+    border: none !important;
   }
 
   tui-scrollbar {
@@ -76,13 +82,34 @@ tui-hosted-dropdown {
 }
 
 .dropdown-content {
-  padding: 12px 20px;
+  position: absolute;
+  top: 35px;
+  right: -16px;
+
   width: 196px;
+
+  max-height: 0;
+
+  padding: 12px 20px;
+  overflow: hidden;
+  z-index: 100;
+
   background-color: var(--gray-600);
+
+  border-radius: 20px;
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
 
   > a {
     &:not(:last-child) {
       margin-bottom: 24px;
     }
+  }
+
+  &_opened {
+    max-height: 208px;
+
+    opacity: 1;
   }
 }

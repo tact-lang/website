@@ -6,19 +6,14 @@
     <a class="link" [link]="LINKS.GITHUB">Github</a>
     <a class="link" [link]="LINKS.TELEGRAM">Telegram</a>
   </div>
-  <tui-hosted-dropdown [content]="content" [(open)]="burgerOpened" (openChange)="burgerToggled()">
-    <button class="burger" [class.burger_opened]="burgerOpened">
-      <span></span>
-      <span></span>
-    </button>
-
-    <ng-template #content>
-      <div class="dropdown-content">
-        <a [link]="LINKS.DESIGN">Design</a>
-        <a [link]="LINKS.SPECIFICATION">Specification</a>
-        <a [link]="LINKS.GITHUB">Github</a>
-        <a [link]="LINKS.TELEGRAM">Telegram</a>
-      </div>
-    </ng-template>
-  </tui-hosted-dropdown>
+  <button #burger class="burger" [class.burger_opened]="burgerOpened" (click)="burgerToggled()">
+    <span></span>
+    <span></span>
+    <div class="dropdown-content" [class.dropdown-content_opened]="burgerOpened">
+      <a [link]="LINKS.DESIGN">Design</a>
+      <a [link]="LINKS.SPECIFICATION">Specification</a>
+      <a [link]="LINKS.GITHUB">Github</a>
+      <a [link]="LINKS.TELEGRAM">Telegram</a>
+    </div>
+  </button>
 </header>

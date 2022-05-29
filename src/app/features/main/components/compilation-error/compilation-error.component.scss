@@ -1,3 +1,5 @@
+@use 'src/styles';
+
 :host {
   display: block;
 }
@@ -27,6 +29,14 @@
   line-height: 22px;
   color: var(--gray-300);
   word-break: break-word;
+
+  @include styles.b(560) {
+    max-width: 300px
+  }
+
+  @include styles.b(470) {
+    max-width: 200px
+  }
 }
 
 

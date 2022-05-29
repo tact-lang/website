@@ -37,5 +37,15 @@ html {
   font-family: variables.$jet-brains-mono-font;
 
   background-color: var(--gray-900);
+
+  /*::-webkit-scrollbar {
+    background: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--gray-600);
+    border: 4px solid var(--gray-900);
+    border-radius: 9px;
+  }*/
 }
 
