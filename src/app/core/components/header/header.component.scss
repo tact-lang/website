@@ -90,7 +90,7 @@ header {
 
   max-height: 0;
 
-  padding: 12px 20px;
+  padding: 0;
   overflow: hidden;
   z-index: 100;
 
@@ -99,7 +99,7 @@ header {
   border-radius: 20px;
   opacity: 0;
 
-  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 
   > a {
     &:not(:last-child) {
@@ -109,6 +109,7 @@ header {
 
   &_opened {
     max-height: 208px;
+    padding: 12px 20px;
 
     opacity: 1;
   }
