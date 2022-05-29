@@ -1,10 +1,10 @@
 <header>
   <img src="assets/images/icons/logo.png" alt="logo" width="97px" height="26px" />
   <div class="links-container">
-    <a class="link" href="#">Design</a>
-    <a class="link" href="#">Specification</a>
-    <a class="link" [link]="'https://github.com/tact-lang'">Github</a>
-    <a class="link" href="#">Telegram</a>
+    <a class="link" [link]="LINKS.DESIGN">Design</a>
+    <a class="link" [link]="LINKS.SPECIFICATION">Specification</a>
+    <a class="link" [link]="LINKS.GITHUB">Github</a>
+    <a class="link" [link]="LINKS.TELEGRAM">Telegram</a>
   </div>
   <tui-hosted-dropdown [content]="content" [(open)]="burgerOpened" (openChange)="burgerToggled()">
     <button class="burger" [class.burger_opened]="burgerOpened">
@@ -14,10 +14,10 @@
 
     <ng-template #content>
       <div class="dropdown-content">
-        <a href="#">Design</a>
-        <a href="#">Specification</a>
-        <a [link]="'https://github.com/tact-lang'">Github</a>
-        <a href="#">Telegram</a>
+        <a [link]="LINKS.DESIGN">Design</a>
+        <a [link]="LINKS.SPECIFICATION">Specification</a>
+        <a [link]="LINKS.GITHUB">Github</a>
+        <a [link]="LINKS.TELEGRAM">Telegram</a>
       </div>
     </ng-template>
   </tui-hosted-dropdown>

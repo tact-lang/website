@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { LINKS } from '@core/constants/LINKS';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 })
 export class HeaderComponent {
   public burgerOpened = false;
+
+  public LINKS = LINKS;
 
   constructor(@Inject(DOCUMENT) private readonly document: Document) {}
 

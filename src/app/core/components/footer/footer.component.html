@@ -4,19 +4,19 @@
       <h2>About Tact</h2>
       <ul>
         <li>
-          <a>
+          <a [link]="LINKS.DESIGN">
             <div inlineSVG="assets/images/icons/design.svg"></div>
             <span>Design documentation</span>
           </a>
         </li>
         <li>
-          <a>
+          <a [link]="LINKS.SPECIFICATION">
             <div inlineSVG="assets/images/icons/specification.svg"></div>
             <span>Specification</span>
           </a>
         </li>
         <li>
-          <a>
+          <a [link]="LINKS.GITHUB">
             <div inlineSVG="assets/images/icons/github.svg"></div>
             <span>Source code on GitHub</span>
           </a>
@@ -28,13 +28,13 @@
       <h2>Contacts</h2>
       <ul>
         <li>
-          <a>
+          <a [link]="LINKS.TELEGRAM">
             <div inlineSVG="assets/images/icons/telegram.svg"></div>
             <span>Telegram channel</span>
           </a>
         </li>
         <li>
-          <a>
+          <a [href]="'mailto:' + LINKS.MAIL_ADDRESS">
             <div inlineSVG="assets/images/icons/mail.svg"></div>
             <span>Contact team</span>
           </a>
@@ -43,7 +43,7 @@
     </section>
   </div>
 
-  <a class="footer-sponsor-link" link="https://ton.org">
+  <a class="footer-sponsor-link" [link]="LINKS.TON">
     <span>Sponsored by TON Foundation</span>
     <div inlineSVG="assets/images/icons/like.svg"></div>
   </a>
