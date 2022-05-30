@@ -87,7 +87,7 @@ header {
   top: 35px;
   right: -16px;
 
-  width: 196px;
+  width: 176px;
 
   max-height: 0;
 
@@ -103,6 +103,9 @@ header {
   transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 
   > a {
+    padding-left: 20px;
+    text-align: left;
+
     &:not(:last-child) {
       margin-bottom: 24px;
     }
@@ -110,7 +113,7 @@ header {
 
   &_opened {
     max-height: 208px;
-    padding: 12px 20px;
+    padding: 12px;
 
     opacity: 1;
   }

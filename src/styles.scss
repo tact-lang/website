@@ -3,6 +3,7 @@
 @use 'styles/variables';
 @use 'styles/html-elements';
 @use 'styles/common';
+@use 'styles/mixins';
 
 @forward 'styles/breakpoints';
 @forward 'styles/colors';
@@ -37,6 +38,11 @@ html {
   font-family: variables.$jet-brains-mono-font;
 
   background-color: var(--gray-900);
+
+  &.burger-opened body {
+    height: 100%;
+    overflow: hidden;
+  }
 
   /*::-webkit-scrollbar {
     background: none;

@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
+import { WINDOW } from '@ng-web-apis/common';
 import { LANGUAGE } from '@shared/models/LANGUAGE';
 
 @Component({
@@ -7,7 +16,7 @@ import { LANGUAGE } from '@shared/models/LANGUAGE';
   styleUrls: ['./labeled-editor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LabeledEditorComponent {
+export class LabeledEditorComponent implements OnInit {
   @Input() language: LANGUAGE = LANGUAGE.TACT;
 
   @Input() disabled: boolean = false;
@@ -18,7 +27,18 @@ export class LabeledEditorComponent {
 
   public LANGUAGE = LANGUAGE;
 
-  public onValueChange(value: string) {
+  public marginTop = 24;
+
+  constructor(@Inject(WINDOW) private readonly window: Window) {}
+
+  ngOnInit() {
+    const windowWidth = this.window.innerWidth;
+    if (windowWidth < 740) {
+      this.marginTop = 16;
+    }
+  }
+
+  public onValueChange(value: string): void {
     this.valueChange.emit(value);
   }
 }

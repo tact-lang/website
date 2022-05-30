@@ -34,7 +34,7 @@
 
     background-color: var(--blue);
 
-    transform: scale(0);
+    transform: translateZ(0) scale(0);
     transform-origin: center;
     opacity: 1;
 
@@ -45,6 +45,6 @@
 
   &:hover::after,
   &:focus::after {
-    transform: scale(1);
+    transform: translateZ(0) scale(1);
   }
 }

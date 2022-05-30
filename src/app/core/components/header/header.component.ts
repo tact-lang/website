@@ -17,6 +17,7 @@ import { LINKS } from '@core/constants/LINKS';
 })
 export class HeaderComponent {
   @HostListener('window:mousedown', ['$event'])
+  @HostListener('document:touchstart', ['$event'])
   onGlobalClick(event: Event): void {
     if (!this.burgerOpened) {
       return;

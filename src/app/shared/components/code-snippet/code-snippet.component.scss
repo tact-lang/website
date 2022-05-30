@@ -1,3 +1,5 @@
+@use 'src/styles';
+
 :host {
   display: block;
 
@@ -6,6 +8,10 @@
   background-color: var(--gray-600);
 
   border-radius: 24px;
+
+  @include styles.b(mobile) {
+    padding: 16px 20px 0;
+  }
 }
 
 app-editor {
