@@ -1,8 +1,8 @@
 export enum LINKS {
-  DESIGN = 'https://example.com', // TODO
+  DESIGN = 'https://github.com/tact-lang/spec/blob/main/tact-design.md',
   SPECIFICATION = 'https://github.com/tact-lang/spec',
   GITHUB = 'https://github.com/tact-lang',
-  TELEGRAM = 'https://example.com', // TODO
-  MAIL_ADDRESS = 'example@example.com', // TODO
+  TELEGRAM = 'https://t.me/tactlang',
+  OPEN_DISCUSSION_ON_GITHUB = 'https://github.com/tact-lang/tact/discussions',
   TON = 'https://ton.org/'
 }

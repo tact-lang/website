@@ -5,7 +5,17 @@ import { WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
 
 const tactCodeExample =
-  'struct Foo {\n  val a: Int(32)\n  val b: Int(16)\n}\nlet serialize_foo = serializer(Foo);\n\nfn test() -> Builder {\n  let b = Builder.new();\n  return serialize_foo(Foo{a: Int(32).new(0), b: Int(16).new(1)}, b);\n}';
+  'struct Wallet {\n' +
+  '  val seqno: Int(32)\n' +
+  '  val pubkey: Int(256)\n' +
+  '}\n' +
+  '\n' +
+  'let serialize_wallet = serializer(Wallet);\n' +
+  '\n' +
+  'fn test() -> Builder {\n' +
+  '  let b = Builder.new();\n' +
+  '  return serialize_wallet(Wallet{seqno: 0, pubkey: 777}, b);\n' +
+  '}';
 
 @Injectable()
 export class EditorService {

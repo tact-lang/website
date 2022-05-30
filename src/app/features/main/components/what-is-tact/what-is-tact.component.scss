@@ -38,6 +38,10 @@ article {
     &:nth-child(2) {
       margin-top: 0;
     }
+
+    > a {
+      display: inline;
+    }
   }
 }
 
