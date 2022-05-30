@@ -86,12 +86,22 @@ section {
   > div {
     display: flex;
     align-items: center;
-    margin-left: 14px;
+    margin-left: 9px;
+
+    ::ng-deep svg path {
+      transition: fill 0.15s ease-in-out;
+    }
   }
 
   &:hover {
     > span {
       color: var(--gray-100);
+    }
+
+    ::ng-deep {
+      > div svg path {
+        fill: var(--gray-100);
+      }
     }
   }
 }
