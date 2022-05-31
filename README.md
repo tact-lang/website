@@ -12,6 +12,7 @@ Run `npm run start`
 2. Commit and push changes. Deployment will process automatically
 
 ## Update tact compiler
-1. Replace `src/scripts/compiler.js` with a new compiler 
+1. Replace `src/scripts/compiler.js` with a new compiler
+2. Rebuild app
 
 **Important**: file path must be `src/scripts/compiler.js`
