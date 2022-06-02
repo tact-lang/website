@@ -5,19 +5,14 @@
   </div>
   <div class="editor-head__description">
     <ng-container *ngIf="language === LANGUAGE.TACT; else funcDescription">
-      Write the Tact code here or select one of the snippets below
+      Write Tact code below
     </ng-container>
     <ng-template #funcDescription>
-      Tact compiler will turn the program to FunC code by the fly
+      Tact compiler will turn the program to FunC code on the fly
     </ng-template>
   </div>
 </div>
 <div class="editor-wrapper">
-  <app-editor
-    [language]="language"
-    [disabled]="disabled"
-    [(value)]="value"
-    (valueChange)="onValueChange($event)"
-    [margin]="[marginTop, 20, 0, 16]"
-  ></app-editor>
+  <app-editor [language]="language" [disabled]="disabled" [(value)]="value" (valueChange)="onValueChange($event)"
+    [margin]="[marginTop, 20, 0, 16]"></app-editor>
 </div>
