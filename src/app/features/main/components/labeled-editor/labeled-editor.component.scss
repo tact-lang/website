@@ -42,6 +42,11 @@ app-editor {
     @include styles.font-standard();
     color: var(--gray-200);
     max-width: 350px;
+    height: 52px;
+
+    @include styles.b(tablet) {
+      height: auto;
+    }
 
     @include styles.b(mobile) {
       line-height: 22px;

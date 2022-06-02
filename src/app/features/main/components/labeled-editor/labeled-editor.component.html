@@ -13,6 +13,11 @@
   </div>
 </div>
 <div class="editor-wrapper">
-  <app-editor [language]="language" [disabled]="disabled" [(value)]="value" (valueChange)="onValueChange($event)"
-    [margin]="[marginTop, 20, 0, 16]"></app-editor>
+  <app-editor
+    [language]="language"
+    [disabled]="disabled"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    [margin]="[marginTop, 20, 0, 16]"
+  ></app-editor>
 </div>

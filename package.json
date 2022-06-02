@@ -1,6 +1,6 @@
 {
   "name": "tact-demo",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,7 +18,7 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
-    "@ng-web-apis/common": "^2.0.0",
+    "@ng-web-apis/common": "^1.13.0",
     "@taiga-ui/cdk": "^2.43.0",
     "@taiga-ui/core": "^2.43.0",
     "@taiga-ui/icons": "^2.43.0",
