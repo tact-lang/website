@@ -1,17 +1,21 @@
 <header>
-  <img src="assets/images/icons/logo.png" alt="logo" width="108px" height="36px" />
-  <div class="links-container">
-    <a class="link" [link]="LINKS.DESIGN">Design</a>
-    <a class="link" [link]="LINKS.GITHUB">Github</a>
-    <a class="link" [link]="LINKS.TELEGRAM">Telegram</a>
-  </div>
-  <button #burger class="burger" [class.burger_opened]="burgerOpened" (click)="burgerToggled()">
+    <img src="assets/images/icons/logo.png" alt="logo" width="108px" height="36px" />
+    <div class="links-container">
+        <a class="link" [link]="LINKS.DOCS">Docs</a>
+        <a class="link" [link]="LINKS.DESIGN">Design</a>
+        <a class="link" [link]="LINKS.GITHUB">Github</a>
+        <a class="link" [link]="LINKS.TELEGRAM">Telegram</a>
+        <a class="link" [link]="LINKS.TWITTER">Twitter</a>
+    </div>
+    <button #burger class="burger" [class.burger_opened]="burgerOpened" (click)="burgerToggled()">
     <span></span>
     <span></span>
     <div class="dropdown-content" [class.dropdown-content_opened]="burgerOpened">
+      <a [link]="LINKS.DOCS">Docs</a>
       <a [link]="LINKS.DESIGN">Design</a>
       <a [link]="LINKS.GITHUB">Github</a>
       <a [link]="LINKS.TELEGRAM">Telegram</a>
+      <a [link]="LINKS.TWITTER">Twitter</a>
     </div>
   </button>
 </header>
