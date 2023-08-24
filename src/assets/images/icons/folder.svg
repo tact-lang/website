@@ -1,0 +1,10 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_324_423" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+<rect y="0.782959" width="24" height="24" fill="#c0c0c0"/>
+</mask>
+<g mask="url(#mask0_324_423)">
+<path d="M4 20.783C3.45 20.783 2.97917 20.5871 2.5875 20.1955C2.19583 19.8038 2 19.333 2 18.783V6.78296C2 6.23296 2.19583 5.76213 2.5875 5.37046C2.97917 4.97879 3.45 4.78296 4 4.78296H10L12 6.78296H20C20.55 6.78296 21.0208 6.97879 21.4125 7.37046C21.8042 7.76213 22 8.23296 22 8.78296H4V18.783L6.4 10.783H23.5L20.925 19.358C20.7917 19.7913 20.5458 20.1371 20.1875 20.3955C19.8292 20.6538 19.4333 20.783 19 20.783H4Z" fill="#c0c0c0"/>
+</g>
+</svg>

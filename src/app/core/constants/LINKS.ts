@@ -5,5 +5,6 @@ export enum LINKS {
   GITHUB = 'https://github.com/tact-lang',
   TELEGRAM = 'https://t.me/tactlang',
   TON = 'https://ton.org/',
-  TWITTER = 'http://twitter.com/tact_language'
+  TWITTER = 'http://twitter.com/tact_language',
+  BRAND_ASSETS = 'https://drive.google.com/drive/folders/1Tg1aNg1VqcyiNk26V6IzcHYtsncQWahl?usp=drive_link'
 }
