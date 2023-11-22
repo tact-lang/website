@@ -2,28 +2,32 @@
     <h2 class="font-header tact-header">What is Tact?</h2>
     <article>
         <p>
-            Tact is a new programming language for TON blockchain smart contracts that is easy to use and has a <a href="#familiar-syntax">familiar syntax</a>, <a href="#type-system">strong type system</a>, <a href="#gas-control">gas control</a> and
-            <a href="#zero-overhead">zero-overhead</a> type composition, which enables developers to write complex smart contract systems with verified execution costs.
+            Tact is a new programming language for TON blockchain that is focused on efficiency and simplicity. It is designed to be easy to learn and use, and to be a good fit for smart contracts. Tact is a statically typed language with a <a href="#familiar-syntax">simple syntax</a> and <a href="#type-system">powerful type system</a>.
         </p>
     </article>
     <article id="familiar-syntax">
         <h3>Familiar syntax</h3>
         <p>
-            Tact offers familiar syntax inspired by JavaScript, Rust and Swift. Powerful features such as algebraic data types and compile-time execution look organic and friendly to new developers.
+            Tact offers familiar syntax inspired by JavaScript & Typescript, Rust and Swift. Powerful features such as algebraic data types and compile-time execution look organic and friendly to new developers. 
         </p>
-        <app-code-snippet content='fn hello(recipient: Address) {
-    recipient.send(Message.new("hello, world!"));
-}' [adaptiveContent]="[
+        <app-code-snippet content='receive("increment") {
+    self.val = self.val + 1; 
+} 
+
+get fun value(input: Int): Int {
+    return input + self.val; 
+}' [adaptiveContent]='[
         {
           maxWidth: 600,
           content:
-            'fn hello(recipient: Address) {\n' +
-            '    recipient.send(\n' +
-            '        Message.new(&quot;hello, world!&quot;)\n' +
-            '    );\n' +
-            '}'
+            "receive(\"increment\") {\n" +
+            "    self.val = self.val + 1;\n" +
+            "}\n\n" +
+            "get fun value(input: Int): Int {\n" +
+            "    return input + self.val;\n" +
+            "}"
         }
-      ]"></app-code-snippet>
+      ]'></app-code-snippet>
     </article>
 
     <article id="type-system">
@@ -33,60 +37,33 @@
         <p>
             Tact offers algebraic data types compatible with TL-B scheme. Arithmetic is always safe because integers have precise bounds. Tact compiler helps you perform necessary checks and does not produce silent failures or unexpected truncation.
         </p>
-        <app-code-snippet content="struct Wallet {
-   val seqno: Int(32);
-   val pubkey: PublicKey;
-   val plugins: List(Plugin);
+        <app-code-snippet content="struct ContractData {
+   index: Int as uint32;
+   admin: Address;
 }"></app-code-snippet>
-    </article>
-
-    <article>
-        <h3>Actor-oriented</h3>
-        <p>
-            Tact is designed specifically for the TON actor model. Strongly typed messages enforce communication contracts between actors.
-        </p>
-        <app-code-snippet content="interface Ping {
-    fn ping(sender: Pong, msg: PingMessage);
-}" [adaptiveContent]="[
-        {
-          maxWidth: 600,
-          content:
-            'interface Ping {\n' +
-            '    fn ping(\n' +
-            '        sender: Pong,\n' +
-            '        msg: PingMessage\n' +
-            '    );\n' +
-            '}'
-        }
-      ]"></app-code-snippet>
     </article>
 
     <article id="gas-control">
         <h3>Gas control</h3>
         <p>
-            Blockchain programs have strict execution cost model. Every operation must be paid for in real time and execution may fail mid-way if it runs out of gas.
+            Blockchain programs have strict execution cost model. Every operation must be paid for in real time and execution may fail mid-way if it runs out of gas. 
         </p>
         <p>
-            Tact makes cross-contract messages safe with precise gas commitments and compiler checks of the execution costs. Variable costs are either statically bounded, or checked explicitly in runtime.
+            Tact makes cross-contract messages safe with precise gas commitments and compiler checks of the execution costs. Variable costs are either statically bounded, or checked explicitly in runtime. 
         </p>
-    </article>
-
-    <article id="zero-overhead">
-        <h3>Zero-overhead type composition</h3>
-        <p>
-            Tact runs your program twice. First run is a compile-time execution that allows freely combining types and interfaces to precisely express invariants of the program. Types are then checked by the compiler. The resulting Fift or FunC code does not have
-            any runtime overhead.
-        </p>
-        <p>
-            This model offers a single unified language with first-class types and avoids pitfall of separate mini-languages for type bounds and macros.
-        </p>
+        <app-code-snippet content='receive("sample message") {
+    require(context().value >= ton("0.1"), "must pay at least 0.1 TON");
+    // (....etc) // 
+}'></app-code-snippet>
     </article>
 
     <article>
         <h3>Tact and FunC</h3>
         <p>
-            FunC is a lower-level language aimed at developers who are deeply familiar with TON architecture. FunC liberates developers from writing raw Fift code, while providing the same level of control. Unfortunately, the precision of FunC makes it harder to
-            write complex multi-contract systems.
+            FunC is a lower-level language aimed at developers who are deeply familiar with TON architecture. FunC liberates developers from writing raw Fift code, while providing the same level of control.
+        </p>
+        <p>
+            Unfortunately, the precision of FunC makes it harder to write complex multi-contract systems.  
         </p>
         <p>
             Tact enables developers to go even further: you can write the entire suites of smart contracts with strongly typed interfaces and statically verified execution costs. With Tact you can focus on your problem and worry less about blockchain idiosyncrasies.
