@@ -19,7 +19,7 @@ import { LANGUAGE } from '@shared/models/LANGUAGE';
 export class LabeledEditorComponent implements OnInit {
   @Input() language: LANGUAGE = LANGUAGE.TACT;
 
-  @Input() disabled: boolean = false;
+  @Input() disabled: boolean = true;
 
   @Input() value: string = '';
 

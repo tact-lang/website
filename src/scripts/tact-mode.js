@@ -35,10 +35,12 @@ ace.define(
           },
           { token: 'text', regex: /\w+:\s*/, next: 'typeAnnotation' },
           { token: 'keyword', regex: /struct\s*/, next: 'typeAnnotation' },
-          { token: 'keyword', regex: /\b(let|if|else|return|fn|val|struct)\b/ },
+          { token: 'keyword', regex: /\b(?:abstract|as|const|contract(?!:)|do|else|extend|extends|fun|get|if|import|initOf|inline|let|message(?!:)|mutates|native|override|primitive|public|repeat|return|self|struct(?!:)|trait(?!:)|until|virtual|while|with)\b/ },
+          {token: 'keyword', regex: /\b(?:init|receive|bounced|external)\b/},
           { token: ['constant', 'text'], regex: /\b([a-z]+[\w_]*\b)(\()/ },
           { token: ['variable'], regex: /\b[A-Z]+[\w_]*\b/ },
-          { caseInsensitive: false }
+          { caseInsensitive: false },
+          
         ],
         multiLineComment: [
           { token: 'comment', regex: /\*\//, next: 'start' },

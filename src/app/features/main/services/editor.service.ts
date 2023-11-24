@@ -5,16 +5,58 @@ import { WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
 
 const tactCodeExample =
-  'struct Wallet {\n' +
-  '  val seqno: Int(32)\n' +
-  '  val pubkey: Int(256)\n' +
+  'message (0x123123) TransferMsg {\n' +
+  '  to: Address;\n' +
+  '  text: String;\n' +
   '}\n' +
   '\n' +
-  'let serialize_wallet = serializer(Wallet);\n' +
+  'contract SimpleContract {\n' +
+  '  init() {}\n' +
+  '  receive() {}\n' +
+  '  receive(msg: TransferMsg) {\n' +
+  '      send(SendParameters{\n' +
+  '          to: msg.to,\n' +
+  '          value: 0,\n' +
+  '          mode: SendRemainingValue,\n' +
+  '          body: msg.text.asComment()\n' +
+  '      });\n' +
+  '  }\n' +
+  '}';
+
+const funCCodeExample =
+  'include "imports/stdlib.fc";\n' +
   '\n' +
-  'fn test() -> Builder {\n' +
-  '  let b = Builder.new();\n' +
-  '  return serialize_wallet(Wallet{seqno: 0, pubkey: 777}, b);\n' +
+
+  'int op::transfer_coins() asm "0x123123 PUSHINT";\n' +
+  '() recv_internal(int my_balance, int msg_value, cell in_msg_full, slice in_msg_body) impure {\n' +
+  '  if (in_msg_body.slice_empty?()) { ;; ignore empty messages\n' +
+  '    return ();\n' +
+  '  }\n' +
+  '\n' +
+  '  slice cs = in_msg_full.begin_parse();\n' +
+  '  int flags = cs~load_uint(4);\n' +
+  '  if (flags & 1) { ;; ignore all bounced messages\n' +
+  '    return ();\n' +
+  '  }\n' +
+  '\n' +
+  '  int op = in_msg_body~load_uint(32);\n' +
+  '  if(op == op::transfer_coins()) {\n' +
+  '    slice to = in_msg_body~load_msg_addr();\n' +
+  '    cell text = in_msg_body~load_ref();\n' +
+  '    cell msg = begin_cell()\n' +
+  '      .store_uint(0x18, 6)\n' +
+  '      .store_slice(to)\n' +
+  '      .store_coins(0)\n' +
+  '      .store_uint(1, 1 + 4 + 4 + 64 + 32 + 1 + 1)\n' +
+  '      .store_ref(begin_cell().store_uint(0, 8)\n' +
+  '      .store_slice(text.begin_parse()).end_cell())\n' +
+  '      .end_cell();\n' +
+  '\n' +
+  '    send_raw_message(msg, 64);\n' +
+  '    return ();\n' +
+  '  }\n' +
+  '\n' +
+  '  throw(0xffff);\n' +
   '}';
 
 @Injectable()
@@ -53,7 +95,7 @@ export class EditorService {
 
   private compile(): void {
     try {
-      const code = this.compiler.parse(this.tactCode);
+      const code = funCCodeExample; // this.compiler.parse(this.tactCode);
 
       if (code === 'Error') {
         throw new Error('invalid Tact input');
