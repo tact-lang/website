@@ -24,7 +24,7 @@ const tactCodeExample =
   '}';
 
 const funCCodeExample =
-  'include "imports/stdlib.fc";\n' +
+  '#include "imports/stdlib.fc";\n' +
   '\n' +
 
   'int op::transfer_coins() asm "0x123123 PUSHINT";\n' +
