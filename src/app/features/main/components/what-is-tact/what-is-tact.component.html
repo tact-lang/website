@@ -2,16 +2,16 @@
     <h2 class="font-header tact-header">What is Tact?</h2>
     <article>
         <p>
-            Tact is a new programming language for TON blockchain that is focused on efficiency and simplicity. It is designed to be easy to learn and use, and to be a good fit for smart contracts. Tact is a statically typed language with a <a href="#familiar-syntax">simple syntax</a> and <a href="#type-system">powerful type system</a>.
+            Tact is a fresh programming language for TON Blockchain, focused on efficiency and ease of development. It is a good fit for complex smart contracts, quick onboarding and rapid prototyping. Tact is a statically typed language with a <a href="#familiar-syntax">simple syntax</a> and <a href="#type-system">powerful type system</a>.
         </p>
     </article>
     <article id="familiar-syntax">
         <h3>Familiar syntax</h3>
         <p>
-            Tact offers familiar syntax inspired by JavaScript & Typescript, Rust and Swift. Powerful features such as algebraic data types and compile-time execution look organic and friendly to new developers. 
+            Tact offers familiar syntax inspired by JavaScript & Typescript, Swift, Kotlin and Rust. Powerful features such as algebraic data types and compile-time execution look organic and friendly to new developers.
         </p>
         <app-code-snippet content='receive("increment") {
-    self.val = self.val + 1; 
+    self.val += 1;
 } 
 
 get fun value(input: Int): Int {
@@ -21,7 +21,7 @@ get fun value(input: Int): Int {
           maxWidth: 600,
           content:
             "receive(\"increment\") {\n" +
-            "    self.val = self.val + 1;\n" +
+            "    self.val += 1;\n" +
             "}\n\n" +
             "get fun value(input: Int): Int {\n" +
             "    return input + self.val;\n" +
@@ -71,12 +71,11 @@ get fun value(input: Int): Int {
     </article>
 
     <article>
-        <h3>Tact is just getting started</h3>
+        <h3>Bright future awaits</h3>
+        <p>Tact is developed in the open source and open development model on <a [link]="LINKS.GITHUB" class="inline-link">Github</a> — suggestions, issues and bug fixes are welcome. In addition, GitHub provides syntax highlighting for Tact code across the website.</p>
+        <p>Many Tact contracts have already been written and more and more projects are using Tact in production.</p>
         <p>
-            Tact is a very new project. It is not fully designed yet and ready to use <strong>at your own risk</strong>. We announce it early in order to collect the feedback and make it useful to developers incrementally.
-        </p>
-        <p>
-            To start, see the Getting Started section of <a [link]="LINKS.DOCS" class="inline-link">Docs</a>. Track our progress (and help with development) on <a [link]="LINKS.GITHUB" class="inline-link">Tact Github</a>.
+            To start writing ⚡ Tact yourself, see the <a [link]="LINKS.DOCSSTART" class="inline-link">Let's start</a> section on the main page of the <a [link]="LINKS.DOCS" class="inline-link">Tact Docs</a>. Good luck on your coding adventure!
         </p>
     </article>
 </section>
