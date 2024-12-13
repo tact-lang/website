@@ -71,6 +71,7 @@ ace.define(
         start: [
           { token: 'comment', regex: /;;[^\n\r]*/ },
           { token: 'comment', regex: /{-/, next: 'multiLineComment' },
+          { token: 'string', regex: /(?:(")(?:\\.|(?!\1)[^\\\r\n])*\1(?!\1))/ },
           { token: 'keyword', regex: `\\b(${funcKeywords.join('|')})\\b` },
           /*{ token: 'keyword', regex: /;/ },*/
           { token: 'keyword', regex: /~/ },

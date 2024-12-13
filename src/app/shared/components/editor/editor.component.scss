@@ -91,9 +91,13 @@ $numeric-color: #8c7aff;
       }
     }
 
-    .ace_comment {
+    .ace_string {
       color: $comment-color;
     }
+
+    /* .ace_comment {
+      color: $comment-color;
+    } */
 
     ::-webkit-scrollbar {
       background: none;
