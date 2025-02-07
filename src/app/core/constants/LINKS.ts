@@ -11,4 +11,5 @@ export enum LINKS {
   BRAND_ASSETS = 'https://drive.google.com/drive/folders/1Tg1aNg1VqcyiNk26V6IzcHYtsncQWahl?usp=drive_link',
   PLAYGROUND = 'https://tact-by-example.org/all',
   IDE = 'https://ide.ton.org',
+  TB_202501_REVIEW = 'https://tact-lang.org/assets/pdfs/2025-01-ton-studio-tact-compiler-securityreview.pdf',
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod && npx rimraf docs/assets/taiga-ui && npx copyfiles CNAME docs",
+    "build": "ng build --prod && npx rimraf docs/assets/taiga-ui && npx copyfiles CNAME docs && npx copyfiles 'pdfs/*' docs/assets",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
