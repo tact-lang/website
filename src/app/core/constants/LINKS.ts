@@ -12,4 +12,5 @@ export enum LINKS {
   PLAYGROUND = 'https://tact-by-example.org/all',
   IDE = 'https://ide.ton.org',
   TB_202501_REVIEW = 'https://tact-lang.org/assets/pdfs/2025-01-ton-studio-tact-compiler-securityreview.pdf',
+  TB_202501_REVIEW_ORIGIN = 'https://github.com/trailofbits/publications/blob/master/reviews/2025-01-ton-studio-tact-compiler-securityreview.pdf',
 }
