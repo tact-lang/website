@@ -16,7 +16,7 @@ section {
 article {
   margin-bottom: 48px;
 
-  > h3 {
+  >h3 {
     @include styles.font-header-2();
     color: var(--gray-100);
     line-height: 32px;
@@ -24,7 +24,7 @@ article {
     margin-bottom: 8px;
   }
 
-  > p {
+  >p {
     margin-top: 12px;
     margin-bottom: 0;
 
@@ -39,7 +39,7 @@ article {
       margin-top: 0;
     }
 
-    > a {
+    >a {
       display: inline;
     }
   }
@@ -48,4 +48,57 @@ article {
 app-code-snippet {
   width: 100%;
   margin-top: 20px;
+}
+
+.tact-big {
+  font-size: 27px;
+  line-height: 34px;
+  color: var(--gray-200);
+  text-transform: uppercase;
+  cursor: default;
+
+  @include styles.b(tablet) {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include styles.b(mobile) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.blue {
+  color: var(--blue);
+}
+
+tui-island,
+tui-island p {
+  color: var(--gray-200);
+  background-color: var(--gray-900);
+}
+
+tui-island button {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Consider switching to https://taiga-ui.dev/v2/grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  transition: all 0.3s;
+
+  @include styles.b(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }

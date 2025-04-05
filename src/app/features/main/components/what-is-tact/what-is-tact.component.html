@@ -1,88 +1,194 @@
 <section>
-    <h2 class="font-header tact-header">What is Tact?</h2>
-    <article>
-        <p>
-            Tact is a fresh programming language for TON Blockchain, focused on efficiency and ease of development. It is a good fit for complex smart contracts, quick onboarding and rapid prototyping. Tact is a statically typed language with a <a href="#familiar-syntax">simple syntax</a> and <a href="#type-system">powerful type system</a>.
-        </p>
-    </article>
-    <article id="familiar-syntax">
-        <h3>Familiar syntax</h3>
-        <p>
-            Tact offers familiar syntax inspired by JavaScript & Typescript, Swift, Kotlin and Rust. Powerful features such as algebraic data types and compile-time execution look organic and friendly to new developers.
-        </p>
-        <app-code-snippet content='receive("increment") {
+  <h2 class="font-header tact-header">What is Tact?</h2>
+  <article>
+    <p>
+      Tact is a fresh programming language for TON Blockchain, focused on efficiency and ease of
+      development. It is a good fit for complex smart contracts, quick onboarding and rapid
+      prototyping. Tact is a statically typed language with a
+      <a href="#familiar-syntax">simple syntax</a> and
+      <a href="#type-system">powerful type system</a>.
+    </p>
+  </article>
+
+  <article>
+    <h3>You are in good company</h3>
+    <p>
+      At the start of 2025, the number of unique code contracts deployed on the mainnet reached almost 28 thousand,
+      of which about <b>33%</b> were <b>written in Tact</b>.
+    <p>
+    <p>
+      Here are some selected Tact-based software and applications deployed in production and consumed by end users:
+    </p>
+    <div class="grid tui-space_top-4">
+      <div>
+        <tui-island>
+          <h3 class="tui-island__title">Tradoor</h3>
+          <p class="tui-island__paragraph">
+            Fast and social DEX on TON.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://tradoor.io/">
+              <tui-svg src="tuiIconLink"></tui-svg>Website</a>
+          </button>
+        </tui-island>
+      </div>
+      <div>
+        <tui-island>
+          <h3 class="tui-island__title">PixelSwap</h3>
+          <p class="tui-island__paragraph">
+            First modular and upgradeable DEX on TON.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://www.pixelswap.io/">
+              <tui-svg src="tuiIconLink"></tui-svg>Website</a>
+          </button>
+        </tui-island>
+      </div>
+      <div>
+        <tui-island>
+          <h3 class="tui-island__title">GasPump</h3>
+          <p class="tui-island__paragraph">
+            TON memecoin launchpad and trading platform.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://gaspump.tg/">
+              <tui-svg src="tuiIconLink"></tui-svg>Website</a>
+          </button>
+        </tui-island>
+      </div>
+      <div>
+        <tui-island>
+          <h3 class="tui-island__title">Proof of Capital</h3>
+          <p class="tui-island__paragraph">
+            A market-making smart contract that protects interests of all holders.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://github.com/proof-of-capital/TON">
+              <tui-svg src="tuiIconLink"></tui-svg>GitHub</a>
+          </button>
+        </tui-island>
+      </div>
+    </div>
+  </article>
+
+  <!--
+  <article>
+    <span class="tact-big tui-space_vertical-5">
+      At the start of 2025, the number of unique code contracts deployed on the mainnet reached almost 28 thousand, of
+      which about <span class="blue">33%</span> were <span class="blue">written in Tact</span>
+    </span>
+  </article>
+  -->
+
+  <article id="familiar-syntax">
+    <h3>Familiar syntax</h3>
+    <p>
+      Tact offers familiar syntax inspired by JavaScript & Typescript, Swift, Kotlin and Rust.
+      Powerful features such as algebraic data types and compile-time execution look organic and
+      friendly to new developers.
+    </p>
+    <app-code-snippet content='receive("increment") {
     self.val += 1;
-} 
+}
 
 get fun value(input: Int): Int {
-    return input + self.val; 
-}' [adaptiveContent]='[
+    return input + self.val;
+}' [adaptiveContent]="[
         {
           maxWidth: 600,
           content:
-            "receive(\"increment\") {\n" +
-            "    self.val += 1;\n" +
-            "}\n\n" +
-            "get fun value(input: Int): Int {\n" +
-            "    return input + self.val;\n" +
-            "}"
+            'receive(&quot;increment&quot;) {\n' +
+            '    self.val += 1;\n' +
+            '}\n\n' +
+            'get fun value(input: Int): Int {\n' +
+            '    return input + self.val;\n' +
+            '}'
         }
-      ]'></app-code-snippet>
-    </article>
+      ]"></app-code-snippet>
+  </article>
 
-    <article id="type-system">
-        <h3>
-            Strong type system
-        </h3>
-        <p>
-            Tact offers algebraic data types compatible with TL-B scheme. Arithmetic is always safe because integers have precise bounds. Tact compiler helps you perform necessary checks and does not produce silent failures or unexpected truncation.
-        </p>
-        <app-code-snippet content="struct ContractData {
+  <article id="type-system">
+    <h3>Strong type system</h3>
+    <p>
+      Tact offers algebraic data types compatible with TL-B scheme. Arithmetic is always safe
+      because integers have precise bounds. Tact compiler helps you perform necessary checks and
+      does not produce silent failures or unexpected truncation.
+    </p>
+    <app-code-snippet content="struct ContractData {
    index: Int as uint32;
    admin: Address;
 }"></app-code-snippet>
-    </article>
+  </article>
 
-    <article id="gas-control">
-        <h3>Gas control</h3>
-        <p>
-            Blockchain programs have strict execution cost model. Every operation must be paid for in real time and execution may fail mid-way if it runs out of gas. 
-        </p>
-        <p>
-            Tact makes cross-contract messages safe with precise gas commitments and compiler checks of the execution costs. Variable costs are either statically bounded, or checked explicitly in runtime. 
-        </p>
-        <app-code-snippet content='receive("sample message") {
+  <article id="gas-control">
+    <h3>Gas control</h3>
+    <p>
+      Blockchain programs have strict execution cost model. Every operation must be paid for in real
+      time and execution may fail mid-way if it runs out of gas.
+    </p>
+    <p>
+      Tact makes cross-contract messages safe with precise gas commitments and compiler checks of
+      the execution costs. Variable costs are either statically bounded, or checked explicitly in
+      runtime.
+    </p>
+    <app-code-snippet content='receive("sample message") {
     require(context().value >= ton("0.1"), "must pay at least 0.1 TON");
-    // (....etc) // 
+    // (....etc) //
 }'></app-code-snippet>
-    </article>
+  </article>
 
-    <article id="secure-and-robust">
-        <h3>Secure and robust</h3>
-        <p>Tact compiler version 1.5.0 has passed a security review by Trail of Bits with <b>no</b> high-severity vulnerabilities found. See the full <a [link]="LINKS.TB_202501_REVIEW_ORIGIN" class="inline-link">PDF report</a>.</p>
-        <p>If the previous link didn't work, try this one with a copy of the report distributed from our website: <a [link]="LINKS.TB_202501_REVIEW" class="inline-link">PDF report</a>.</p>
-    </article>
+  <article id="secure-and-robust">
+    <h3>Secure and robust</h3>
+    <p>
+      Tact compiler version 1.5.0 has passed a security review by Trail of Bits with
+      <b>no</b> high-severity vulnerabilities found. See the full
+      <a [link]="LINKS.TB_202501_REVIEW_ORIGIN" class="inline-link">PDF report</a>.
+    </p>
+    <p>
+      If the previous link didn't work, try this one with a copy of the report distributed from our
+      website: <a [link]="LINKS.TB_202501_REVIEW" class="inline-link">PDF report</a>.
+    </p>
+  </article>
 
-    <article>
-        <h3>Tact and FunC</h3>
-        <p>
-            FunC is a lower-level language aimed at developers who are deeply familiar with TON architecture. FunC liberates developers from writing raw Fift code, while providing the same level of control.
-        </p>
-        <p>
-            Unfortunately, the precision of FunC makes it harder to write complex multi-contract systems.  
-        </p>
-        <p>
-            Tact enables developers to go even further: you can write the entire suites of smart contracts with strongly typed interfaces and statically verified execution costs. With Tact you can focus on your problem and worry less about blockchain idiosyncrasies.
-        </p>
-    </article>
+  <article>
+    <h3>Tact and FunC</h3>
+    <p>
+      FunC is a lower-level language aimed at developers who are deeply familiar with TON
+      architecture. FunC liberates developers from writing raw Fift code, while providing the same
+      level of control.
+    </p>
+    <p>
+      Unfortunately, the precision of FunC makes it harder to write complex multi-contract systems.
+    </p>
+    <p>
+      Tact enables developers to go even further: you can write the entire suites of smart contracts
+      with strongly typed interfaces and statically verified execution costs. With Tact you can
+      focus on your problem and worry less about blockchain idiosyncrasies.
+    </p>
+  </article>
 
-    <article>
-        <h3>Bright future awaits</h3>
-        <p>Tact is developed in the open source and open development model on <a [link]="LINKS.GITHUB" class="inline-link">GitHub</a> — suggestions, issues and bug fixes are welcome. In addition, GitHub provides syntax highlighting for Tact code across the website.</p>
-        <p>Many Tact contracts have already been written and more and more projects are using Tact in production.</p>
-        <p>In addition, Trail of Bits, one of the leading Web3 security firms, has made a security audit of Tact v1.5 and found <b>zero</b> high-severity vulnerabilities. See the full <a [link]="LINKS.TB_202501_REVIEW_ORIGIN" class="inline-link">PDF report</a>.</p>
-        <p>
-            To start writing ⚡ Tact yourself, see the <a [link]="LINKS.DOCSSTART" class="inline-link">Let's start</a> section on the main page of the <a [link]="LINKS.DOCS" class="inline-link">Tact Docs</a>. Good luck on your coding adventure!
-        </p>
-    </article>
+  <article>
+    <h3>Bright future awaits</h3>
+    <p>
+      Tact is developed in the open source and open development model on
+      <a [link]="LINKS.GITHUB" class="inline-link">GitHub</a> — suggestions, issues and bug fixes
+      are welcome. In addition, GitHub provides syntax highlighting for Tact code across the
+      website.
+    </p>
+    <p>
+      Many Tact contracts have already been written and more and more projects are using Tact in
+      production.
+    </p>
+    <p>
+      In addition, Trail of Bits, one of the leading Web3 security firms, has made a security audit
+      of Tact v1.5 and found <b>zero</b> high-severity vulnerabilities. See the full
+      <a [link]="LINKS.TB_202501_REVIEW_ORIGIN" class="inline-link">PDF report</a>.
+    </p>
+    <p>
+      To start writing ⚡ Tact yourself, see the
+      <a [link]="LINKS.DOCSSTART" class="inline-link">Let's start</a> section on the main page of
+      the <a [link]="LINKS.DOCS" class="inline-link">Tact Docs</a>. Good luck on your coding
+      adventure!
+    </p>
+  </article>
 </section>
