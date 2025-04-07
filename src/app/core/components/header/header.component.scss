@@ -6,13 +6,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 850px;
+  margin: 0 auto;
   margin-top: 14px;
 
   background: transparent;
 
   img {
+    margin-right: 18px;
     opacity: 1;
-    transition: opacity 0.3s ease-in-out
+    transition: opacity 0.3s ease-in-out;
   }
 
   @include styles.burgerOpened {
@@ -32,7 +35,11 @@ header {
 
 .link {
   &:not(:last-child) {
-    margin-right: 48px;
+    margin-right: 36px;
+
+    @include styles.b(tablet) {
+      margin-right: 18px;
+    }
   }
 }
 
@@ -102,7 +109,7 @@ header {
 
   transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 
-  > a {
+  >a {
     padding-left: 20px;
     text-align: left;
 
