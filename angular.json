@@ -54,7 +54,7 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "src/styles.scss"
             ],
-            "scripts": ["src/scripts/ace.js", "src/scripts/tact-mode.js", "src/scripts/func-mode.js", "src/scripts/compiler.js"]
+            "scripts": ["src/scripts/ace.js", "src/scripts/tact-mode.js", "src/scripts/func-mode.js"]
           },
           "configurations": {
             "production": {

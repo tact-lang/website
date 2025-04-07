@@ -4,6 +4,8 @@
 }
 
 section {
+    max-width: 850px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     @include styles.b(mobile) {
@@ -16,7 +18,7 @@ section {
     margin-right: 24px;
     color: var(--blue);
     font-weight: styles.$font-weight-extra-bold;
-    font-size: 104px;
+    font-size: 80px;
     line-height: 138px;
     text-transform: uppercase;
     cursor: default;
@@ -31,9 +33,9 @@ section {
 }
 
 .tact-description {
-    max-width: 733px;
-    font-size: 37px;
-    line-height: 49px;
+    max-width: 640px;
+    font-size: 32px;
+    line-height: 36px;
     color: var(--gray-200);
     text-transform: uppercase;
     cursor: default;

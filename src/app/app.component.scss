@@ -27,6 +27,10 @@
       }
     }
 
+    @include styles.b(tablet) {
+      padding: 0 48px;
+    }
+
     @include styles.b(mobile) {
       padding: 0 24px;
     }

@@ -1,12 +1,15 @@
 @use 'src/styles';
 
+footer {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
 .footer-container {
   display: flex;
-  gap: 75px;
   margin-bottom: 76px;
 
   @include styles.b(mobile) {
-    flex-direction: column;
     margin-bottom: 64px;
   }
 }
