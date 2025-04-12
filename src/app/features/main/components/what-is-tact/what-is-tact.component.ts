@@ -10,4 +10,6 @@ import { LINKS } from '@core/constants/LINKS';
 export class WhatIsTactComponent {
   public LINKS = LINKS;
   public iLink = 'tuiIconLink';
+  public max = 100;
+  public value = 33;
 }
