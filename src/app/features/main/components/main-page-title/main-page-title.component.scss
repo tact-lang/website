@@ -1,51 +1,86 @@
 @use 'src/styles';
+
 :host {
-    display: block;
+  display: block;
 }
 
-section {
-    max-width: 850px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    @include styles.b(mobile) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+section>div {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  @include styles.b(mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .tact-label {
-    margin-right: 24px;
-    color: var(--blue);
-    font-weight: styles.$font-weight-extra-bold;
-    font-size: 80px;
-    line-height: 138px;
-    text-transform: uppercase;
-    cursor: default;
-    @include styles.b(tablet) {
-        font-size: 63px;
-        line-height: 84px;
-    }
-    @include styles.b(mobile) {
-        font-size: 72px;
-        line-height: 95px;
-    }
+  margin-right: 24px;
+  color: var(--blue);
+  font-weight: styles.$font-weight-extra-bold;
+  font-size: 80px;
+  line-height: 138px;
+  text-transform: uppercase;
+  cursor: default;
+
+  @include styles.b(tablet) {
+    font-size: 63px;
+    line-height: 84px;
+  }
+
+  @include styles.b(mobile) {
+    font-size: 72px;
+    line-height: 95px;
+  }
 }
 
 .tact-description {
-    max-width: 640px;
-    font-size: 32px;
-    line-height: 36px;
-    color: var(--gray-200);
-    text-transform: uppercase;
-    cursor: default;
+  max-width: 640px;
+  font-size: 32px;
+  line-height: 36px;
+  color: var(--gray-200);
+  text-transform: uppercase;
+  cursor: default;
+
+  @include styles.b(tablet) {
+    max-width: 440px;
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  @include styles.b(mobile) {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+
+.tact-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: -1rem;
+  max-width: 850px;
+
+  >button {
+    height: 2.5rem;
+    margin-top: 16px;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+
     @include styles.b(tablet) {
-        max-width: 440px;
-        font-size: 22px;
-        line-height: 30px;
+      height: 2rem;
+      font-size: 14px;
+      margin-top: 16px;
+      margin-right: 12px;
     }
+
     @include styles.b(mobile) {
-        font-size: 28px;
-        line-height: 40px;
+      margin-top: 12px;
+      margin-right: 8px;
     }
+  }
 }

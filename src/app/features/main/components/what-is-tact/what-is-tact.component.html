@@ -12,48 +12,23 @@
 
   <article>
     <h3>You are in good company</h3>
-    <p>
-      At the start of 2025, the number of unique code contracts deployed on the mainnet reached almost 28 thousand,
-      of which about <b>33%</b> were <b>written in Tact</b>.
-    <p>
+    <div class="two-column">
+      <label tuiProgressLabel class="tui-space_right-4">
+        <span class="progress-percent">{{ value }}%</span>
+        <tui-progress-circle size="l" [max]="max" [value]="value">
+        </tui-progress-circle>
+      </label>
+      <p>
+        At the start of 2025, the number of <i [tuiHint]="tipUniqueCode" [tuiHintShowDelay]="100">unique code</i>
+        contracts deployed on the mainnet reached almost 28 thousand,
+        of which about <b>33%</b> were <b>written in Tact</b>.
+      </p>
+    </div>
     <p>
       Here are some selected Tact-based software and applications deployed in production and consumed by end users:
     </p>
     <div class="grid tui-space_top-4">
-      <div>
-        <tui-island>
-          <h3 class="tui-island__title">Tradoor</h3>
-          <p class="tui-island__paragraph">
-            Fast and social DEX on TON.
-          </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://tradoor.io/">Website</a>
-          </button>
-        </tui-island>
-      </div>
-      <div>
-        <tui-island>
-          <h3 class="tui-island__title">PixelSwap</h3>
-          <p class="tui-island__paragraph">
-            First modular and upgradeable DEX on TON.
-          </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://www.pixelswap.io/">Website</a>
-          </button>
-        </tui-island>
-      </div>
-      <div>
-        <tui-island>
-          <h3 class="tui-island__title">GasPump</h3>
-          <p class="tui-island__paragraph">
-            TON memecoin launchpad and trading platform.
-          </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://gaspump.tg/">Website</a>
-          </button>
-        </tui-island>
-      </div>
-      <div>
+      <div class="grid-item">
         <tui-island>
           <h3 class="tui-island__title">Proof of Capital</h3>
           <p class="tui-island__paragraph">
@@ -64,17 +39,41 @@
           </button>
         </tui-island>
       </div>
+      <div class="grid-item">
+        <tui-island>
+          <h3 class="tui-island__title">Tradoor</h3>
+          <p class="tui-island__paragraph">
+            Fast and social DEX on TON.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://tradoor.io/">Website</a>
+          </button>
+        </tui-island>
+      </div>
+      <div class="grid-item">
+        <tui-island>
+          <h3 class="tui-island__title">PixelSwap</h3>
+          <p class="tui-island__paragraph">
+            First modular and upgradeable DEX on TON.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://www.pixelswap.io/">Website</a>
+          </button>
+        </tui-island>
+      </div>
+      <div class="grid-item">
+        <tui-island>
+          <h3 class="tui-island__title">GasPump</h3>
+          <p class="tui-island__paragraph">
+            TON memecoin launchpad and trading platform.
+          </p>
+          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
+            <a href="https://gaspump.tg/">Website</a>
+          </button>
+        </tui-island>
+      </div>
     </div>
   </article>
-
-  <!--
-  <article>
-    <span class="tact-big tui-space_vertical-5">
-      At the start of 2025, the number of unique code contracts deployed on the mainnet reached almost 28 thousand, of
-      which about <span class="blue">33%</span> were <span class="blue">written in Tact</span>
-    </span>
-  </article>
-  -->
 
   <article id="familiar-syntax">
     <h3>Familiar syntax</h3>
@@ -83,21 +82,25 @@
       Powerful features such as algebraic data types and compile-time execution look organic and
       friendly to new developers.
     </p>
-    <app-code-snippet content='receive("increment") {
-    self.val += 1;
-}
+    <app-code-snippet content='contract NumberGoUp(val: Int) {
+    receive("increment") {
+        self.val += 1;
+    }
 
-get fun value(input: Int): Int {
-    return input + self.val;
+    get fun value(extra: Int): Int {
+        return extra + self.val;
+    }
 }' [adaptiveContent]="[
         {
           maxWidth: 600,
           content:
-            'receive(&quot;increment&quot;) {\n' +
-            '    self.val += 1;\n' +
-            '}\n\n' +
-            'get fun value(input: Int): Int {\n' +
-            '    return input + self.val;\n' +
+            'contract NumberGoUp(val: Int) {\n' +
+            '    receive(&quot;increment&quot;) {\n' +
+            '        self.val += 1;\n' +
+            '    }\n\n' +
+            '    get fun value(input: Int): Int {\n' +
+            '        return input + self.val;\n' +
+            '    }\n' +
             '}'
         }
       ]"></app-code-snippet>
@@ -111,8 +114,9 @@ get fun value(input: Int): Int {
       does not produce silent failures or unexpected truncation.
     </p>
     <app-code-snippet content="struct ContractData {
-   index: Int as uint32;
-   admin: Address;
+    index: Int as uint32 = 0xBABECAFE;
+    admin: Address;
+    pubKey: Slice as bytes64;
 }"></app-code-snippet>
   </article>
 
@@ -129,7 +133,7 @@ get fun value(input: Int): Int {
     </p>
     <app-code-snippet content='receive("sample message") {
     require(context().value >= ton("0.1"), "must pay at least 0.1 TON");
-    // (....etc) //
+    // (...etc)
 }'></app-code-snippet>
   </article>
 
@@ -154,7 +158,7 @@ get fun value(input: Int): Int {
       level of control.
     </p>
     <p>
-      Unfortunately, the precision of FunC makes it harder to write complex multi-contract systems.
+      Unfortunately, the peculiarity and quirks of FunC makes it harder to write complex multi-contract systems.
     </p>
     <p>
       Tact enables developers to go even further: you can write the entire suites of smart contracts
@@ -187,4 +191,14 @@ get fun value(input: Int): Int {
       adventure!
     </p>
   </article>
+
+  <!-- <hr class="tui-space_vertical-5"> -->
 </section>
+
+<ng-template #tipUniqueCode>
+  <p class="tooltip-text">
+    The "unique code" means that each contract in the data sample has at least one TVM
+    instruction that differs from the other contracts, excluding many preprocessed wallets with everything inlined —
+    even seqno and a public key for signature verification!
+  </p>
+</ng-template>

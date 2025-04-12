@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  /* --tui-base-03: var(--tui-base-05); */
 }
 
 .tact-header {
@@ -25,7 +26,8 @@ article {
     margin-bottom: 8px;
   }
 
-  >p {
+  >p,
+  >div>p {
     margin-top: 12px;
     margin-bottom: 0;
 
@@ -51,6 +53,41 @@ app-code-snippet {
   margin-top: 20px;
 }
 
+.two-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.progress-percent {
+  font: var(--tui-font-text-xl);
+  color: var(--tui-primary);
+}
+
+.tooltip-text {
+  display: block;
+  margin: -1.25rem;
+  padding: 1.25rem;
+  background: var(--gray-600);
+  font-family: styles.$inter-font;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--gray-200);
+}
+
+/* NOTE: ::ng-deep allows to circumvent the Angular's view encapsulation */
+::ng-deep tui-hint-box::before {
+  /* getting rid of an annoying random blue star */
+  display: none !important;
+}
+
+::ng-deep circle.t-track {
+  r: 1.810em !important;
+  stroke-width: 0.1em !important;
+}
+
 .tact-big {
   font-size: 27px;
   line-height: 34px;
@@ -70,7 +107,8 @@ app-code-snippet {
 }
 
 .blue {
-  color: var(--blue);
+  /* --blue */
+  color: var(--tui-primary);
 }
 
 tui-island,
@@ -82,6 +120,11 @@ tui-island p {
 tui-island button {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.tui-island__paragraph {
+  aspect-ratio: 1 / 1;
+  max-height: 8.5rem;
 }
 
 /* Consider switching to https://taiga-ui.dev/v2/grid */
