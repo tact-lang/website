@@ -1,18 +1,42 @@
 <section>
-  <h2 class="font-header tact-header">What is Tact?</h2>
+  <h2 id="what-is-tact" class="font-header tact-header">What is Tact?</h2>
   <article>
     <p>
-      Tact is a fresh programming language for TON Blockchain, focused on efficiency and ease of
-      development. It is a good fit for complex smart contracts, quick onboarding and rapid
-      prototyping. Tact is a statically typed language with a
-      <a href="#familiar-syntax">simple syntax</a> and
-      <a href="#type-system">powerful type system</a>.
+      Tact is a fresh programming language for TON Blockchain that is focused on efficiency and ease of development. It
+      is a good fit for complex smart contracts, quick onboarding, and rapid prototyping. Tact is fast 🏎️,
+      gas-efficient ⛽, and developer-friendly 🤗
     </p>
+    <app-code-snippet content='contract NumberGoUp(value: Int) {
+    receive(msg: Add) {
+        self.value += msg.value;
+    }
+
+    get fun getValuePlus(extra: Int): Int {
+        return self.value + extra;
+    }
+}
+
+message Add { value: Int }' [adaptiveContent]="[
+        {
+          maxWidth: 600,
+          content:
+            'contract NumberGoUp(value: Int) {\n' +
+            '    receive(msg: Add) {\n' +
+            '        self.value += msg.value;\n' +
+            '    }\n\n' +
+            '    get fun getValuePlus(extra: Int): Int {\n' +
+            '        return self.value + extra;\n' +
+            '    }\n' +
+            '}\n\n' +
+            'message Add { value: Int }'
+        }
+      ]"></app-code-snippet>
   </article>
 
+  <h2 id="mass-adoption" class="font-header tact-header">Mass adoption driver</h2>
+
   <article>
-    <h3>You are in good company</h3>
-    <div class="two-column">
+    <div class="two-column tui-space_bottom-5">
       <label tuiProgressLabel class="tui-space_right-4">
         <span class="progress-percent">{{ value }}%</span>
         <tui-progress-circle size="l" [max]="max" [value]="value">
@@ -20,7 +44,7 @@
       </label>
       <p>
         At the start of 2025, the number of <i [tuiHint]="tipUniqueCode" [tuiHintShowDelay]="100">unique code</i>
-        contracts deployed on the mainnet reached almost 28 thousand,
+        contracts deployed on the mainnet has reached almost 28 thousand,
         of which about <b>33%</b> were <b>written in Tact</b>.
       </p>
     </div>
@@ -34,9 +58,7 @@
           <p class="tui-island__paragraph">
             A market-making smart contract that protects interests of all holders.
           </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://github.com/proof-of-capital/TON">GitHub</a>
-          </button>
+          <a href="https://github.com/proof-of-capital/TON">GitHub</a>
         </tui-island>
       </div>
       <div class="grid-item">
@@ -45,9 +67,7 @@
           <p class="tui-island__paragraph">
             Fast and social DEX on TON.
           </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://tradoor.io/">Website</a>
-          </button>
+          <a href="https://tradoor.io/">Website</a>
         </tui-island>
       </div>
       <div class="grid-item">
@@ -56,9 +76,7 @@
           <p class="tui-island__paragraph">
             First modular and upgradeable DEX on TON.
           </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://www.pixelswap.io/">Website</a>
-          </button>
+          <a href="https://www.pixelswap.io/">Website</a>
         </tui-island>
       </div>
       <div class="grid-item">
@@ -67,123 +85,191 @@
           <p class="tui-island__paragraph">
             TON memecoin launchpad and trading platform.
           </p>
-          <button tuiButton type="button" appearance="flat" size="m" class="tui-island__footer-button">
-            <a href="https://gaspump.tg/">Website</a>
-          </button>
+          <a href="https://gaspump.tg/">Website</a>
         </tui-island>
       </div>
     </div>
   </article>
 
-  <article id="familiar-syntax">
-    <h3>Familiar syntax</h3>
+  <h2 id="features" class="font-header tact-header">Powerful and feature-rich</h2>
+  <article>
     <p>
-      Tact offers familiar syntax inspired by JavaScript & Typescript, Swift, Kotlin and Rust.
-      Powerful features such as algebraic data types and compile-time execution look organic and
-      friendly to new developers.
+      The most prominent and distinctive features of Tact are:
     </p>
-    <app-code-snippet content='contract NumberGoUp(val: Int) {
-    receive("increment") {
-        self.val += 1;
-    }
-
-    get fun value(extra: Int): Int {
-        return extra + self.val;
-    }
-}' [adaptiveContent]="[
-        {
-          maxWidth: 600,
-          content:
-            'contract NumberGoUp(val: Int) {\n' +
-            '    receive(&quot;increment&quot;) {\n' +
-            '        self.val += 1;\n' +
-            '    }\n\n' +
-            '    get fun value(input: Int): Int {\n' +
-            '        return input + self.val;\n' +
-            '    }\n' +
-            '}'
-        }
-      ]"></app-code-snippet>
+    <ul class="tui-space_top-4 ulist">
+      <li>Familiar and user-friendly TypeScript-like syntax.</li>
+      <li>Strong static type system with built-in <a
+          href="https://docs.tact-lang.org/book/structs-and-messages#structs">Structs</a>, <a
+          href="https://docs.tact-lang.org/book/structs-and-messages#messages">Messages</a>, and <a
+          href="https://docs.tact-lang.org/book/maps">maps</a>, among others.</li>
+      <li>First-class <a href="https://docs.tact-lang.org/book/maps">maps</a> support, with many methods and a
+        convenient <a href="https://docs.tact-lang.org/book/statements#foreach-loop"><code>foreach</code> statement</a>
+        for traversing.
+      </li>
+      <li>Automatic (de)serialization of incoming messages and data structures.</li>
+      <li>Automatic routing of <a href="https://docs.tact-lang.org/book/contracts/#receiver-functions">internal,
+          external, and bounced messages</a>.</li>
+      <li>Automatic handling of message types, including <a href="https://docs.tact-lang.org/book/receive/">binary,
+          text, and fallback slices</a>.</li>
+      <li>No boilerplate functions for <a href="https://docs.tact-lang.org/book/send/#message-sending-functions">sending
+          messages</a> and deploying child contracts.</li>
+      <li>Reusable behaviors through <a href="https://docs.tact-lang.org/book/types/#traits">traits</a>.</li>
+      <li>Support for low-level programming with <a
+          href="https://docs.tact-lang.org/book/assembly-functions/"><code>asm</code> functions</a>.</li>
+      <li>Generation of <a href="https://docs.tact-lang.org/book/compile/#wrap">single-file TypeScript wrappers</a> for
+        convenient interactions with compiled contracts, which
+        include:</li>
+      <ul>
+        <li>Type definitions for <a href="https://docs.tact-lang.org/book/structs-and-messages#structs">Structs</a> and
+          <a href="https://docs.tact-lang.org/book/structs-and-messages#messages">Messages</a> observable in the <a
+            href="https://docs.tact-lang.org/book/compile/#report">compilation report</a>.
+        </li>
+        <li>Corresponding <code>storeStructureName()</code> and <code>loadStructureName()</code> functions for
+          (de)serialization.</li>
+        <li>All global and contract-level constants.</li>
+        <li>Bi-directional records of exit codes: from their names to numbers and vice versa.</li>
+        <li>Opcodes of all <a href="https://docs.tact-lang.org/book/structs-and-messages#messages">Messages</a>.</li>
+        <li>A contract wrapper class with various helper functions for initialization, deployment, and message exchange.
+        </li>
+      </ul>
+      <li>Rich <a href="https://docs.tact-lang.org/ref/">standard library</a>.</li>
+      <li>Extensive <a href="https://docs.tact-lang.org/">documentation</a>.</li>
+      <li>Robust <a href="#tooling">tooling</a>.</li>
+      <li>...and a lot more!</li>
+    </ul>
   </article>
 
-  <article id="type-system">
-    <h3>Strong type system</h3>
-    <p>
-      Tact offers algebraic data types compatible with TL-B scheme. Arithmetic is always safe
-      because integers have precise bounds. Tact compiler helps you perform necessary checks and
-      does not produce silent failures or unexpected truncation.
-    </p>
-    <app-code-snippet content="struct ContractData {
-    index: Int as uint32 = 0xBABECAFE;
-    admin: Address;
-    pubKey: Slice as bytes64;
-}"></app-code-snippet>
+  <h2 id="tooling" class="font-header tact-header">Tooling-packed</h2>
+
+  <article>
+    <h3>Extensions and plugins</h3>
+    <ul class="ulist">
+      <li><a href="https://marketplace.visualstudio.com/items?itemName=tonstudio.vscode-tact">VS Code extension</a> —
+        powerful and feature-rich extension for Visual Studio Code (VSCode) and VSCode-based editors, like VSCodium,
+        Cursor, Windsurf, and others.</li>
+      <ul>
+        <li>Get it on the <a href="https://marketplace.visualstudio.com/items?itemName=tonstudio.vscode-tact">Visual
+            Studio Marketplace</a>.</li>
+        <li>Get it on the <a href="https://open-vsx.org/extension/tonstudio/vscode-tact">Open VSX Registry</a>.</li>
+        <li>Or install from the <a href="https://github.com/tact-lang/tact-language-server/releases"><code>.vsix</code>
+            files in nightly releases</a>.</li>
+      </ul>
+      <li><a href="https://github.com/tact-lang/tact-language-server">Language Server (LSP Server)</a> — supports
+        Sublime Text, (Neo)Vim, Helix, and other editors with LSP support.</li>
+      <li><a href="https://github.com/tact-lang/tact.vim">tact.vim</a> — Vim 8+ and Neovim plugin.</li>
+      <li><a href="https://github.com/tact-lang/tact-sublime">tact-sublime</a> — Sublime Text 4 package.</li>
+      <ul>
+        <li>Get it on the <a href="https://packagecontrol.io/packages/Tact">Package Control</a>.</li>
+      </ul>
+    </ul>
   </article>
 
-  <article id="gas-control">
-    <h3>Gas control</h3>
-    <p>
-      Blockchain programs have strict execution cost model. Every operation must be paid for in real
-      time and execution may fail mid-way if it runs out of gas.
-    </p>
-    <p>
-      Tact makes cross-contract messages safe with precise gas commitments and compiler checks of
-      the execution costs. Variable costs are either statically bounded, or checked explicitly in
-      runtime.
-    </p>
-    <app-code-snippet content='receive("sample message") {
-    require(context().value >= ton("0.1"), "must pay at least 0.1 TON");
-    // (...etc)
-}'></app-code-snippet>
+  <article>
+    <h3>Security</h3>
+    <ul class="ulist">
+      <li><a href="https://github.com/nowarp/misti">Misti</a> — static smart contract analyzer.</li>
+      <li><a href="https://github.com/espritoxyz/tsa">TON Symbolic Analyzer (TSA)</a> — static smart contract analysis
+        tool based on symbolic execution.</li>
+    </ul>
   </article>
 
-  <article id="secure-and-robust">
-    <h3>Secure and robust</h3>
+  <article>
+    <h3>Utility</h3>
+    <ul class="ulist">
+      <li>Compiler itself, <code>tact</code> — it is distributed as an <a
+          href="https://www.npmjs.com/package/@tact-lang/compiler">NPM package</a> bundled with the Tact standard
+        library. The recommended Node.js version is 22 or higher, while the minimum version is 18.</li>
+      <li>Formatter, <code>tact-fmt</code> — official Tact formatter that ships with the Tact Language Server, VS Code
+        extension, and as a standalone binary with the compiler. Invoke it with <code>npx tact-fmt</code> in your Tact
+        projects.</li>
+      <li>BoC Disassembler, <code>unboc</code> — disassembler for <code>.boc</code> files that ships as a standalone
+        binary with the compiler. Invoke it with <code>npx unboc</code> in your Tact projects.</li>
+      <li><a [link]="LINKS.IDE">ide.ton.org</a> — online IDE and interactive web playground.</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Project management</h3>
+    <ul class="ulist">
+      <li><a href="https://github.com/tact-lang/tact-template">tact-template</a> — ready-to-use template with the
+        development environment set up, including the Tact compiler with TypeScript and Jest, a local TON emulator,
+        AI-based editor support, and examples of how to run tests.</li>
+      <li><a href="https://github.com/tact-lang/create-tact">create-tact</a> — a CLI for setting up a new clean project
+        from the Tact template. You can use it with npm, yarn, pnpm, and bun with either of the following commands:</li>
+      <ul>
+        <li><code>npm create tact@latest</code></li>
+        <li><code>yarn create tact@latest</code></li>
+        <li><code>pnpm create tact@latest</code></li>
+        <li><code>bun create tact@latest</code></li>
+      </ul>
+    </ul>
+  </article>
+
+  <h2 id="security" class="font-header tact-header">Secure and accessible</h2>
+
+  <article>
+    <h3>Tact is audited and battle-tested</h3>
     <p>
       Tact compiler version 1.5.0 has passed a security review by Trail of Bits with
       <b>no</b> high-severity vulnerabilities found. See the full
-      <a [link]="LINKS.TB_202501_REVIEW_ORIGIN" class="inline-link">PDF report</a>.
+      <a [link]="LINKS.TB_202501_REVIEW_ORIGIN">PDF report</a> or <a [link]="LINKS.TB_202501_REVIEW">its copy</a> on
+      this website.
     </p>
     <p>
-      If the previous link didn't work, try this one with a copy of the report distributed from our
-      website: <a [link]="LINKS.TB_202501_REVIEW" class="inline-link">PDF report</a>.
+      Moreover, Tact documentation provides comprehensive pages on <a
+        href="https://docs.tact-lang.org/book/security-best-practices">security best practices</a> and <a
+        href="https://docs.tact-lang.org/book/gas-best-practices">gas best practices</a>.
     </p>
   </article>
 
   <article>
-    <h3>Tact and FunC</h3>
+    <h3>Tact is open and public</h3>
     <p>
-      FunC is a lower-level language aimed at developers who are deeply familiar with TON
-      architecture. FunC liberates developers from writing raw Fift code, while providing the same
-      level of control.
+      Tact is developed by TON Studio in the open source and open development model on
+      <a [link]="LINKS.GITHUB">GitHub</a> — suggestions, issues and bug fixes
+      are welcome! Notice that GitHub provides syntax highlighting for Tact code across the website.
     </p>
     <p>
-      Unfortunately, the peculiarity and quirks of FunC makes it harder to write complex multi-contract systems.
+      To help develop the Tact compiler, see its <a
+        href="https://github.com/tact-lang/tact/blob/main/dev-docs/CONTRIBUTING.md">contributing guide</a>.
     </p>
+  </article>
+
+  <article id="community">
+    <h3>Tact is community-driven</h3>
     <p>
-      Tact enables developers to go even further: you can write the entire suites of smart contracts
-      with strongly typed interfaces and statically verified execution costs. With Tact you can
-      focus on your problem and worry less about blockchain idiosyncrasies.
+      If you can’t find the answer in the <a [link]="LINKS.DOCS">docs</a>, or you’ve tried to do some local testing
+      and it still didn’t help — don’t hesitate to reach out to Tact’s flourishing community:
     </p>
+    <ul class="tui-space_top-4 ulist">
+      <li><a href="https://t.me/tactlang"><code>@tactlang</code></a> — Main Telegram community chat and discussion group
+      </li>
+      <li><a href="https://t.me/tactlang_ru"><code>@tactlang_ru</code></a> — Russian-speaking Telegram chat</li>
+      <li><a href="https://t.me/tact_kitchen"><code>@tact_kitchen</code></a> — Telegram channel with updates from the
+        team</li>
+      <li><a href="https://x.com/tact_language"><code>@tact_language</code></a> — X/Twitter</li>
+      <li><a href="https://t.me/ton_studio"><code>@ton_studio</code></a> — Telegram channel of teams behind Tact and
+        other TON projects</li>
+      <li><a href="https://x.com/thetonstudio"><code>@thetonstudio</code></a> — X/Twitter</li>
+    </ul>
   </article>
 
   <article>
-    <h3>Bright future awaits</h3>
+    <h3>Sounds good? Let's get started!</h3>
     <p>
-      Tact is developed in the open source and open development model on
-      <a [link]="LINKS.GITHUB" class="inline-link">GitHub</a> — suggestions, issues and bug fixes
-      are welcome. In addition, GitHub provides syntax highlighting for Tact code across the
-      website.
+      To start writing Tact yourself, install the <a href="#tooling">preferred tools</a>,
+      then see the <a [link]="LINKS.DOCSSTART">Let's start</a>
+      section on the main page of the <a [link]="LINKS.DOCS">Tact Docs</a>.
     </p>
     <p>
-      To start writing ⚡ Tact yourself, see the
-      <a [link]="LINKS.DOCSSTART" class="inline-link">Let's start</a> section on the main page of
-      the <a [link]="LINKS.DOCS" class="inline-link">Tact Docs</a>. Good luck on your coding
-      adventure!
+      Once you get the grip of it, we invite you to create new educational materials in any form, help foster the
+      community, and build new Tact contracts and projects. The best creations will be featured in <a
+        href="https://github.com/tact-lang/awesome-tact">awesome-tact</a> and on social media.
+    </p>
+    <p>
+      Good luck on your coding adventure with ⚡ Tact!
     </p>
   </article>
-
-  <!-- <hr class="tui-space_vertical-5"> -->
 </section>
 
 <ng-template #tipUniqueCode>
