@@ -1,10 +1,11 @@
 <section>
   <h2 id="what-is-tact" class="font-header tact-header">What is Tact?</h2>
+
   <article>
     <p>
       Tact is a fresh programming language for TON Blockchain that is focused on efficiency and ease of development. It
-      is a good fit for complex smart contracts, quick onboarding, and rapid prototyping. Tact is fast 🏎️,
-      gas-efficient ⛽, and developer-friendly 🤗
+      is a good fit for complex smart contracts, quick onboarding, and rapid prototyping. Tact is fast,
+      gas-efficient, and developer-friendly.
     </p>
     <app-code-snippet content='contract NumberGoUp(value: Int) {
     receive(msg: Add) {
@@ -49,7 +50,7 @@ message Add { value: Int }' [adaptiveContent]="[
       </p>
     </div>
     <p>
-      Here are some selected Tact-based software and applications deployed in production and consumed by end users:
+      Here are some selected Tact-based software and applications deployed in production and&nbsp;consumed by end users:
     </p>
     <div class="grid tui-space_top-4">
       <div class="grid-item">
@@ -92,6 +93,7 @@ message Add { value: Int }' [adaptiveContent]="[
   </article>
 
   <h2 id="features" class="font-header tact-header">Powerful and feature-rich</h2>
+
   <article>
     <p>
       The most prominent and distinctive features of Tact are:
@@ -145,7 +147,8 @@ message Add { value: Int }' [adaptiveContent]="[
     <h3>Extensions and plugins</h3>
     <ul class="ulist">
       <li><a href="https://marketplace.visualstudio.com/items?itemName=tonstudio.vscode-tact">VS Code extension</a> —
-        powerful and feature-rich extension for Visual Studio Code (VSCode) and VSCode-based editors, like VSCodium,
+        powerful and feature-rich extension for Visual Studio Code (VSCode) and&nbsp;VSCode-based editors, like
+        VSCodium,
         Cursor, Windsurf, and others.</li>
       <ul>
         <li>Get it on the <a href="https://marketplace.visualstudio.com/items?itemName=tonstudio.vscode-tact">Visual
@@ -155,7 +158,7 @@ message Add { value: Int }' [adaptiveContent]="[
             files in nightly releases</a>.</li>
       </ul>
       <li><a href="https://github.com/tact-lang/tact-language-server">Language Server (LSP Server)</a> — supports
-        Sublime Text, (Neo)Vim, Helix, and other editors with LSP support.</li>
+        Sublime Text, (Neo)Vim, Helix, and&nbsp;other editors with&nbsp;LSP support.</li>
       <li><a href="https://github.com/tact-lang/tact.vim">tact.vim</a> — Vim 8+ and Neovim plugin.</li>
       <li><a href="https://github.com/tact-lang/tact-sublime">tact-sublime</a> — Sublime Text 4 package.</li>
       <ul>
@@ -177,13 +180,13 @@ message Add { value: Int }' [adaptiveContent]="[
     <h3>Utility</h3>
     <ul class="ulist">
       <li>Compiler itself, <code>tact</code> — it is distributed as an <a
-          href="https://www.npmjs.com/package/@tact-lang/compiler">NPM package</a> bundled with the Tact standard
-        library. The recommended Node.js version is 22 or higher, while the minimum version is 18.</li>
-      <li>Formatter, <code>tact-fmt</code> — official Tact formatter that ships with the Tact Language Server, VS Code
-        extension, and as a standalone binary with the compiler. Invoke it with <code>npx tact-fmt</code> in your Tact
-        projects.</li>
+          href="https://www.npmjs.com/package/@tact-lang/compiler">NPM package</a> bundled with the standard
+        library. The recommended Node.js version is 22 or higher, while the minimum version is 18. You can invoke the
+        compiler or any of the bundled tools with <code>npx</code>, followed by the name of the tool.</li>
+      <li>Formatter, <code>tact-fmt</code> — official formatter that ships with the Tact Language Server, VS Code
+        extension, and as a standalone binary with&nbsp;the compiler.</li>
       <li>BoC Disassembler, <code>unboc</code> — disassembler for <code>.boc</code> files that ships as a standalone
-        binary with the compiler. Invoke it with <code>npx unboc</code> in your Tact projects.</li>
+        binary with&nbsp;the compiler.</li>
       <li><a [link]="LINKS.IDE">ide.ton.org</a> — online IDE and interactive web playground.</li>
     </ul>
   </article>
@@ -195,7 +198,9 @@ message Add { value: Int }' [adaptiveContent]="[
         development environment set up, including the Tact compiler with TypeScript and Jest, a local TON emulator,
         AI-based editor support, and examples of how to run tests.</li>
       <li><a href="https://github.com/tact-lang/create-tact">create-tact</a> — a CLI for setting up a new clean project
-        from the Tact template. You can use it with npm, yarn, pnpm, and bun with either of the following commands:</li>
+        from the Tact template. You can use it with <code>npm</code>, <code>yarn</code>, <code>pnpm</code>, and
+        <code>bun</code> with one of the following commands:
+      </li>
       <ul>
         <li><code>npm create tact@latest</code></li>
         <li><code>yarn create tact@latest</code></li>
@@ -210,10 +215,9 @@ message Add { value: Int }' [adaptiveContent]="[
   <article>
     <h3>Tact is audited and battle-tested</h3>
     <p>
-      Tact compiler version 1.5.0 has passed a security review by Trail of Bits with
-      <b>no</b> high-severity vulnerabilities found. See the full
-      <a [link]="LINKS.TB_202501_REVIEW_ORIGIN">PDF report</a> or <a [link]="LINKS.TB_202501_REVIEW">its copy</a> on
-      this website.
+      Compiler version 1.5.0 has passed a security review by Trail of Bits with <b>no</b>
+      high-severity vulnerabilities found. See the full <a [link]="LINKS.TB_202501_REVIEW_ORIGIN">PDF report</a>
+      or <a [link]="LINKS.TB_202501_REVIEW">its copy</a> on this website.
     </p>
     <p>
       Moreover, Tact documentation provides comprehensive pages on <a
@@ -225,12 +229,12 @@ message Add { value: Int }' [adaptiveContent]="[
   <article>
     <h3>Tact is open and public</h3>
     <p>
-      Tact is developed by TON Studio in the open source and open development model on
+      It is developed by TON Studio in the open source and open development model on
       <a [link]="LINKS.GITHUB">GitHub</a> — suggestions, issues and bug fixes
       are welcome! Notice that GitHub provides syntax highlighting for Tact code across the website.
     </p>
     <p>
-      To help develop the Tact compiler, see its <a
+      To help develop the compiler, see its <a
         href="https://github.com/tact-lang/tact/blob/main/dev-docs/CONTRIBUTING.md">contributing guide</a>.
     </p>
   </article>
@@ -254,12 +258,12 @@ message Add { value: Int }' [adaptiveContent]="[
     </ul>
   </article>
 
-  <article>
+  <article id="start">
     <h3>Sounds good? Let's get started!</h3>
     <p>
       To start writing Tact yourself, install the <a href="#tooling">preferred tools</a>,
       then see the <a [link]="LINKS.DOCSSTART">Let's start</a>
-      section on the main page of the <a [link]="LINKS.DOCS">Tact Docs</a>.
+      section on the main page of the <a [link]="LINKS.DOCS">documentation</a>.
     </p>
     <p>
       Once you get the grip of it, we invite you to create new educational materials in any form, help foster the

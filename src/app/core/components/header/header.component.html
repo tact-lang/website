@@ -1,23 +1,23 @@
 <header>
   <img src="assets/images/icons/logo.png" alt="logo" width="108px" height="36px" />
   <div class="links-container">
-    <a class="link" [link]="LINKS.IDE">Playground</a>
-    <a class="link" [link]="LINKS.DOCS">Documentation</a>
-    <a class="link" [link]="LINKS.GITHUB">GitHub</a>
-    <a class="link" [link]="LINKS.TELEGRAM">Telegram</a>
-    <a class="link" [link]="LINKS.KITCHEN">Tact Kitchen</a>
     <a class="link" [link]="LINKS.TWITTER">X.com</a>
+    <a class="link" [link]="LINKS.GITHUB">GitHub</a>
+    <a class="link" [link]="LINKS.KITCHEN">Blog</a>
+    <a class="link" [link]="LINKS.TELEGRAM">Chat</a>
+    <a class="link" [link]="LINKS.DOCS">Documentation</a>
+    <a class="link" [link]="LINKS.IDE">Playground</a>
   </div>
   <button #burger class="burger" [class.burger_opened]="burgerOpened" (click)="burgerToggled()">
     <span></span>
     <span></span>
     <div class="dropdown-content" [class.dropdown-content_opened]="burgerOpened">
-      <a [link]="LINKS.IDE">Playground</a>
-      <a [link]="LINKS.DOCS">Documentation</a>
-      <a [link]="LINKS.GITHUB">GitHub</a>
-      <a [link]="LINKS.TELEGRAM">Telegram</a>
-      <a [link]="LINKS.KITCHEN">Tact Kitchen</a>
       <a [link]="LINKS.TWITTER">X.com</a>
+      <a [link]="LINKS.GITHUB">GitHub</a>
+      <a [link]="LINKS.KITCHEN">Blog</a>
+      <a [link]="LINKS.TELEGRAM">Chat</a>
+      <a [link]="LINKS.DOCS">Documentation</a>
+      <a [link]="LINKS.IDE">Playground</a>
     </div>
   </button>
 </header>

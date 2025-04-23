@@ -42,15 +42,32 @@ section {
 
     > span {
       @include styles.font-standard();
-      display: flex;
-      align-items: center;
+      position: relative;
+      /* TODO: remake this list */
+      /* display: flex; */
+      /* align-items: center; */
 
       color: var(--gray-300);
 
       transition: color 0.15s ease-in-out;
+
+      /* &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1em;
+        background-color: var(--blue);
+        transform: translateZ(0) scale(0);
+        transform-origin: center;
+        opacity: 1;
+        transition: opacity 300ms, transform 300ms;
+        content: '';
+      } */
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       > span {
         color: var(--gray-100);
       }
@@ -61,6 +78,13 @@ section {
         }
       }
     }
+
+    /* &:hover::after,
+    &:focus::after {
+      > span {
+        transform: translateZ(0) scale(1);
+      }
+    } */
   }
 
   li:not(:last-child) {
@@ -96,7 +120,8 @@ section {
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     > span {
       color: var(--gray-100);
     }

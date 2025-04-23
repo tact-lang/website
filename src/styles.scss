@@ -37,7 +37,8 @@ html {
 
   font-family: variables.$jet-brains-mono-font;
 
-  background-color: var(--gray-900);
+  /* Same background color as in the dark docs theme */
+  background-color: #17181c;
 
   &.burger-opened body {
     height: 100%;

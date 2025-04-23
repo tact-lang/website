@@ -9,6 +9,7 @@ section>div {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   @include styles.b(mobile) {
     flex-direction: column;
@@ -37,50 +38,58 @@ section>div {
 }
 
 .tact-description {
-  max-width: 640px;
-  font-size: 32px;
-  line-height: 36px;
+  /* max-width: 640px; */
+  max-width: 720px;
+  /* font-size: 32px; */
+  font-size: 36px;
+  /* line-height: 40px; */
   color: var(--gray-200);
   text-transform: uppercase;
+  text-align: center;
   cursor: default;
 
   @include styles.b(tablet) {
-    max-width: 440px;
-    font-size: 22px;
-    line-height: 30px;
+    max-width: 640px;
+    font-size: 32px;
+    line-height: 36px;
   }
 
   @include styles.b(mobile) {
+    text-align: left;
+    max-width: 560px;
     font-size: 28px;
-    line-height: 40px;
   }
 }
 
 .tact-buttons {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin-top: -1rem;
-  max-width: 850px;
+  justify-content: center;
+  margin-top: 12px;
+  max-width: 700px;
 
-  >button {
-    height: 2.5rem;
-    margin-top: 16px;
-
-    &:not(:last-child) {
-      margin-right: 16px;
-    }
-
-    @include styles.b(tablet) {
-      height: 2rem;
-      font-size: 14px;
-      margin-top: 16px;
-      margin-right: 12px;
-    }
-
-    @include styles.b(mobile) {
-      margin-top: 12px;
-      margin-right: 8px;
-    }
+  @include styles.b(mobile) {
+    justify-content: left;
   }
+
+  >button,
+  >a,
+  {
+  font-weight: 500;
+  height: 2.5rem;
+  margin-top: 8px;
+  margin-right: 16px;
+
+  /* &:not(:last-child) {
+      margin-right: 16px;
+    } */
+
+  @include styles.b(tablet) {
+    margin-right: 12px;
+  }
+
+  @include styles.b(mobile) {
+    margin-right: 8px;
+  }
+}
 }
