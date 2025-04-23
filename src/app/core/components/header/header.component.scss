@@ -5,6 +5,7 @@ $burger-color: #c4c4c4;
 header {
   display: flex;
   justify-content: space-between;
+  /* justify-content: center; */
   align-items: center;
   max-width: 850px;
   margin: 0 auto;
@@ -27,6 +28,7 @@ header {
 
 .links-container {
   display: flex;
+  /* justify-content: space-between; */
 
   @include styles.b(mobile) {
     display: none;
@@ -39,6 +41,16 @@ header {
 
     @include styles.b(tablet) {
       margin-right: 18px;
+    }
+  }
+
+  &:focus {
+    color: var(--gray-100);
+
+    ::ng-deep {
+      > div svg path {
+        fill: var(--gray-100);
+      }
     }
   }
 }
