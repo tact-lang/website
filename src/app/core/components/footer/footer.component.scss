@@ -43,27 +43,22 @@ section {
     > span {
       @include styles.font-standard();
       position: relative;
-      /* TODO: remake this list */
-      /* display: flex; */
-      /* align-items: center; */
-
       color: var(--gray-300);
-
       transition: color 0.15s ease-in-out;
+    }
 
-      /* &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0.1em;
-        background-color: var(--blue);
-        transform: translateZ(0) scale(0);
-        transform-origin: center;
-        opacity: 1;
-        transition: opacity 300ms, transform 300ms;
-        content: '';
-      } */
+    > span::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.1em;
+      background-color: var(--gray-100);
+      transform: translateZ(0) scale(0);
+      transform-origin: center;
+      opacity: 1;
+      transition: opacity 300ms, transform 300ms;
+      content: '';
     }
 
     &:hover,
@@ -72,19 +67,16 @@ section {
         color: var(--gray-100);
       }
 
+      > span::after {
+        transform: translateZ(0) scale(1);
+      }
+
       ::ng-deep {
         > div svg path {
           fill: var(--gray-100);
         }
       }
     }
-
-    /* &:hover::after,
-    &:focus::after {
-      > span {
-        transform: translateZ(0) scale(1);
-      }
-    } */
   }
 
   li:not(:last-child) {

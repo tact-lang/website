@@ -183,71 +183,92 @@ app-code-snippet {
   stroke-width: 0.1em !important;
 }
 
-.tact-big {
-  font-size: 27px;
-  line-height: 34px;
-  color: var(--gray-200);
-  text-transform: uppercase;
-  cursor: default;
-
-  @include styles.b(tablet) {
-    font-size: 24px;
-    line-height: 30px;
-  }
-
-  @include styles.b(mobile) {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
 .blue {
   /* --blue */
   color: var(--tui-primary);
 }
 
-tui-island,
-tui-island p {
-  color: var(--gray-200);
-  background-color: var(--gray-900);
-  font-family: styles.$inter-font;
-  letter-spacing: 0.04em;
-}
+/* tui-island, */
+/* tui-island p { */
+/* color: var(--gray-200); */
+/* background-color: var(--gray-900); */
+/* font-family: styles.$inter-font; */
+/* letter-spacing: 0.04em; */
+/* } */
 
-tui-island button {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
+/* tui-island button { */
+/* padding-top: 0.5rem; */
+/* padding-bottom: 0.5rem; */
+/* } */
 
-.tui-island__paragraph {
-  aspect-ratio: 1 / 1;
-  max-height: 8.5rem;
-  font-weight: 400;
-  /* font-size: 16px; */
-  /* line-height: 24px; */
+/* .tui-island__paragraph { */
+/* aspect-ratio: 1 / 1; */
+/* max-height: 8.5rem; */
+/* font-weight: 400; */
+/* font-size: 16px; */
+/* line-height: 24px; */
 
-  @include styles.b(tablet) {
-    aspect-ratio: initial;
-    min-height: 5rem;
-  }
-}
+/* @include styles.b(tablet) { */
+/* aspect-ratio: initial; */
+/* min-height: 5rem; */
+/* } */
+/* } */
 
 /* Consider switching to https://taiga-ui.dev/v2/grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
   transition: all 0.3s;
 
   @include styles.b(tablet) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 6px;
   }
+}
+
+.grid-card {
+  font-family: styles.$inter-font;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--gray-300);
+  /* #99a1ad */
+  background-color: transparent;
+  border: 1px solid var(--tui-text-01);
+  /*rgba(255, 255, 255, 0.1)*/
+  border-radius: var(--tui-radius-l);
+  padding: 0 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-card>h4 {
+  display: inherit;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-top: 1em;
+  color: var(--gray-100);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.grid-card>p {
+  flex-grow: 1;
+  /* margin-bottom: 1em; */
+}
+
+.grid-card>a {
+  font-size: 15px;
+  line-height: initial;
+  margin-bottom: 1em;
+  max-width: fit-content;
 }
