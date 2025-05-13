@@ -65,7 +65,7 @@ If we switch to the `app/` directory, it has the following contents:
 
 ## Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project, from the terminal:
 
 Command               | Action
 :-------------------- | :-----
