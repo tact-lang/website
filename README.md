@@ -40,7 +40,7 @@ Here is a top-level overview of the directory structure:
 │   ├── styles        ← global Sass styles
 │   └── styles.scss   ← main Sass style file
 ├── .gitignore
-├── CNAME             ← Contains an URL for GitHub Pages deployments
+├── CNAME             ← Contains a URL for GitHub Pages deployments
 ├── package.json
 ├── tsconfig.json
 └── angular.json      ← Angular configuration
