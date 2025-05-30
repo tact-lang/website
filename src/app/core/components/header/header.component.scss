@@ -122,7 +122,7 @@ header {
   transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 
   >a {
-    padding-left: 20px;
+    margin-left: 12px;
     text-align: left;
 
     &:not(:last-child) {
@@ -131,7 +131,7 @@ header {
   }
 
   &_opened {
-    max-height: 208px;
+    max-height: fit-content;
     padding: 12px;
 
     opacity: 1;
