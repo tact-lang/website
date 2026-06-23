@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Deprecated! Please, learn the [Tolk Language](https://docs.ton.org/blockchain-basics/tolk/overview)
+
 # Tact Website
 
 Developed by [TON Studio](https://tonstudio.io), powered by the community.

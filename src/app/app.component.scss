@@ -25,6 +25,10 @@
       app-header {
         opacity: 1;
       }
+
+      app-top-banner {
+        opacity: 1;
+      }
     }
 
     @include styles.b(tablet) {
@@ -36,4 +40,3 @@
     }
   }
 }
-
