@@ -1,0 +1,36 @@
+@use 'src/styles';
+
+.top-banner {
+  position: relative;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: var(--tact-banner-height);
+  margin-left: calc(50% - 50vw);
+  padding: var(--tact-banner-padding-block) 24px;
+
+  color: var(--tact-banner-text);
+  font-weight: styles.$font-weight-bold;
+  font-size: var(--tact-banner-font-size);
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+
+  background: var(--tact-banner-bg);
+  border-bottom: 1px solid var(--gray-700);
+
+  transition: color 0.15s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--tact-banner-text-muted);
+    text-decoration: none;
+  }
+
+  span {
+    min-width: 0;
+  }
+}

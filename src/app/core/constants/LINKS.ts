@@ -5,6 +5,7 @@ export enum LINKS {
   TELEGRAM = 'https://t.me/tactlang',
   KITCHEN = 'https://t.me/tact_kitchen',
   TON = 'https://ton.org/',
+  TOLK = 'https://docs.ton.org/tolk/overview',
   TWITTER = 'http://twitter.com/tact_language',
   BRAND_ASSETS = 'https://drive.google.com/drive/folders/1Tg1aNg1VqcyiNk26V6IzcHYtsncQWahl?usp=drive_link',
   PLAYGROUND = 'https://tact-by-example.org/all',
